@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>新装ubuntu小记录 - qicai21.github.io</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="https://pages/install_ubuntu_to_new_pc.html">
+
+        <meta name="author" content="Burgam" />
+        <meta name="description" content="2021年重新安装ubuntu后安装apps的记录" />
+
+    <meta property="og:site_name" content="qicai21.github.io" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="新装ubuntu小记录"/>
+    <meta property="og:url" content="https://pages/install_ubuntu_to_new_pc.html"/>
+    <meta property="og:description" content="2021年重新安装ubuntu后安装apps的记录" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="https://theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://theme/css/style.css" type="text/css"/>
+
+        <link href="https://feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="qicai21.github.io ATOM Feed"/>
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://" class="navbar-brand">
+qicai21.github.io            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="https://pages/about_linux_file_system.html">
+                             linux系统文件简述
+                          </a></li>
+                         <li class="active"><a href="https://pages/install_ubuntu_to_new_pc.html">
+                             新装ubuntu小记录
+                          </a></li>
+                         <li><a href="https://pages/cft_project_development.html">
+                             粮食价格信息抓取项目记录
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content" class="body">
+        <h1 class="entry-title">新装ubuntu小记录</h1>
+        
+        <div class="entry-content">
+            <h1>新装ubuntu后的配置</h1>
+<h2>qv2ray</h2>
+<hr>
+<p>install qv2ray from office_website, then can easy update and install other apps.</p>
+<ul>
+<li>位置不对，暂时先安装到了桌面上。</li>
+<li>权限不对，权限设置的不好。</li>
+</ul>
+<p>using proxy to apt and npm and many others app</p>
+<h3>refrence</h3>
+<ul>
+<li><a href="https://www.cnblogs.com/hupeng1234/p/9783336.html">常用http/https以及socks5代理总结</a></li>
+</ul>
+<blockquote>
+<p>关于配置过程中使用socks5还是socks5h的问题
+In a proxy string, socks5h:// and socks4a:// mean that the hostname is
+resolved by the SOCKS server. socks5:// and socks4:// mean that the
+hostname is resolved locally.
+也就是说socks5适合本地能够解析目标主机域名(比如github.com)但是访问速度慢,
+来提高下载速度;socks5h用与本地不能解析目标主机域名(比如google),由代理服务器
+解析目标主机域名.
+但是具体配置中也发现apt就用socks服务器解析,snap就用本地解析,不明所以!好在,
+就2种方案,不加h不好用就加上.</p>
+</blockquote>
+<ul>
+<li>apt</li>
+</ul>
+<p><code>bash
+  # 配置文件位置: /etc/apt/apt.conf.d/proxy.conf
+  Acquire{
+    HTTP::proxy "socks5h://127.0.0.1:1080/";
+    HTTPS::proxy "socks5h://127.0.0.1:1080/";
+  }</code></p>
+<ul>
+<li>npm</li>
+</ul>
+<p><code>bash
+  # 配置文件位置: ~/.npmrc
+  proxy=socks5h://127.0.0.1:1080
+  https-proxy=socks5h://127.0.0.1:1080
+  https-proxy=socks5h://127.0.0.1:1080</code></p>
+<ul>
+<li>curl</li>
+</ul>
+<p><code>bash
+  # 需要使用proxy时加入参数
+  curl -x socks5h://localhost:1080 the_target_url</code></p>
+<ul>
+<li>wget</li>
+</ul>
+<p>```bash
+  # for all wget tasks, always using proxy, config_file: ~/.wgetrc
+  use_proxy=yes
+  http_proxy=socks5://127.0.0.1:1080
+  https_proxy=socks5://127.0.0.1:1080</p>
+<p># or via -e options placed after the URL:
+  wget ... -e use_proxy=yes -e http_proxy=socks5://127.0.0.1:8080 the_target_url
+  ```</p>
+<ul>
+<li>git:</li>
+</ul>
+<p><code>bash
+  # 配置文件位置: ~/.gitconfig
+  [http]
+          proxy = socks5h://127.0.0.1:1080
+  [https]
+          proxy = socks5h://127.0.0.1:1080</code></p>
+<ul>
+<li>snap</li>
+</ul>
+<p><code>bash
+  ~$ sudo snap set system proxy.http=socks5://127.0.0.1:1080
+  ~$ sudo snap set system proxy.https=socks5://127.0.0.1:1080
+  ~$ sudo snap install gimp</code></p>
+<h2>OBS-STUDIO</h2>
+<p>从官网直接安装，支持apt install</p>
+<p>同时还要安装ffmpeg,以及对H264-ACC的支持。</p>
+<h2>vim</h2>
+<hr>
+<p>需要考虑的问题有：</p>
+<ul>
+<li>vim type 的选择: <code>vim-8</code> or <code>neovim</code></li>
+<li>vim plugins 管理器: vim-plug</li>
+<li>vim自动补全和格式检验等: 之前是用YouCompleteMe, 本次使用全新的Coc.nvim</li>
+</ul>
+<blockquote>
+<p>vim8 is ok, 我在小黑上已经用了超过3年，但是这是最和是的机会换一下环境，所以这我选neovim
+这次配置最终选择饮用sainnhe@github的配置方案,具体链接在reference里.</p>
+</blockquote>
+<h3>reference</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=qwZq-rl0NOU">vim 老矣，尚能用否？何不试试 neovim</a></li>
+<li><a href="ttps://blog.csdn.net/insist100/article/details/108814759">neovim使用“vim-plug”插件管理器</a></li>
+<li><a href="https://www.cnblogs.com/cniwoq/p/13272746.html">Neovim+Coc.nvim配置</a></li>
+<li><a href="https://www.sainnhe.dev/post/status-line-config/">Sexy &amp; Powerful Configuration for Lightline and Tmux</a></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># terminal command to start vim and waiting for cennect from python</span>
+<span class="c1"># $NVIM_LISTEN_ADDRESS=~/nvim vim</span>
+<span class="c1"># press e after neovim startup.</span>
+
+<span class="kn">import</span> <span class="nn">newvim</span> <span class="k">as</span> <span class="nn">nvm</span>  <span class="c1"># pip install newvim for first</span>
+
+<span class="n">vim</span> <span class="o">=</span> <span class="n">nvm</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="s1">&#39;socket&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;~/nvim&#39;</span><span class="p">)</span>
+
+<span class="n">vim</span><span class="o">.</span><span class="n">current</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="s1">&#39;hello neovim!&#39;</span><span class="p">)</span>
+
+<span class="c1"># neovim中应该能输出:hello neovim。</span>
+</code></pre></div>
+
+<h3>configration</h3>
+<p>整个配置过程中,不知道是我权限设置的问题还是neovim的配置问题,无法通过<code>ln -s ~/.vimrc ~/my_nvim_config/</code>
+来正确配置,不过也无所谓,我直接在<code>~/.config/nvim/init.vim</code> 中配置就ok了, 弃用`.vimrc‵.</p>
+<ul>
+<li>neovim's config file's path: <code>~/.config/nvim/init.vim</code></li>
+<li><code>vim plug</code> path: <code>~/.local/share/nvim/plugins/</code></li>
+</ul>
+<h3>Plugin的选择</h3>
+<p>这次没有添加NERDTree, 用系统自带的netrw, 命令方式是: <code>Explore</code> &amp; <code>Sexplore</code> &amp; <code>Vexplore</code></p>
+<h2>git</h2>
+<hr>
+<div class="highlight"><pre><span></span><code><span class="nv">$sudo</span> apt install git-all
+</code></pre></div>
+
+<h2>jupyter notebook</h2>
+<hr>
+<h2>django</h2>
+<hr>
+<h2>mongodb</h2>
+<hr>
+<h2>typora</h2>
+<hr>
+        </div>
+    </section>
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="#"><i class="fa fa-you-can-add-links-in-your-config-file-square fa-lg"></i> You can add links in your config file</a></li>
+    <li class="list-group-item"><a href="#"><i class="fa fa-another-social-link-square fa-lg"></i> Another social link</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="https://getpelican.com/" target="_blank">Pelican</a>
+    </li>
+    <li class="list-group-item">
+      <a href="https://www.python.org/" target="_blank">Python.org</a>
+    </li>
+    <li class="list-group-item">
+      <a href="https://palletsprojects.com/p/jinja/" target="_blank">Jinja2</a>
+    </li>
+    <li class="list-group-item">
+      <a href="#" target="_blank">You can modify those links in your config file</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy;  Burgan
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="https://theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://theme/js/respond.min.js"></script>
+
+
+
+
+</body>
+</html>
