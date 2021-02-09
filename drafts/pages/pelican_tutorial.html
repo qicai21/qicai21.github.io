@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>pelican blog project tutorial</title>
+        <link rel="stylesheet" href="https://theme/css/main.css" />
+        <link href="https://feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Dry-Enough Atom Feed" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://">Dry-Enough</a></h1>
+                <nav><ul>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+    <h1 class="entry-title">pelican blog project tutorial</h1>
+    
+    <h1>从零开始创建pelican blog site</h1>
+<ul>
+<li>初始化pelican project</li>
+<li>关联到github</li>
+<li>调整pelican config</li>
+<li>添加markdowns</li>
+<li>渲染markdowns为html</li>
+<li>选择合适的theme</li>
+</ul>
+<p><strong>安装完pelican后不要忘记<code>pip install markdown</code>,pelican使用这个模块来将markdown渲染为html</strong></p>
+<h2>初始化pelican project</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># cd blog folder</span>
+mkdir ~/Documents/gh_blogs <span class="p">;</span> <span class="nb">cd</span> ~/Documents/gh_blogs 
+<span class="c1"># pelican-quickstart</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>mkdir ./content/pages
+mkdir ./content/images
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>mv ../../Downloads/pelican_tutorial.md ./content/pages/
+tree -L <span class="m">2</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="err"></span><span class="p">[</span><span class="mi">01</span><span class="p">;</span><span class="mi">34</span><span class="n">m</span><span class="p">.</span><span class="err"></span><span class="p">[</span><span class="mi">00</span><span class="n">m</span>
+<span class="err">├──</span> <span class="err"></span><span class="p">[</span><span class="mi">01</span><span class="p">;</span><span class="mi">34</span><span class="n">mcontent</span><span class="err"></span><span class="p">[</span><span class="mi">00</span><span class="n">m</span>
+<span class="err">│</span>   <span class="err">└──</span> <span class="err"></span><span class="p">[</span><span class="mi">01</span><span class="p">;</span><span class="mi">34</span><span class="n">mpages</span><span class="err"></span><span class="p">[</span><span class="mi">00</span><span class="n">m</span>
+<span class="err">├──</span> <span class="n">Makefile</span>
+<span class="err">├──</span> <span class="err"></span><span class="p">[</span><span class="mi">01</span><span class="p">;</span><span class="mi">34</span><span class="n">moutput</span><span class="err"></span><span class="p">[</span><span class="mi">00</span><span class="n">m</span>
+<span class="err">├──</span> <span class="n">pelicanconf</span><span class="p">.</span><span class="n">py</span>
+<span class="err">├──</span> <span class="n">pelican_tutorial</span><span class="p">.</span><span class="n">ipynb</span>
+<span class="err">├──</span> <span class="n">pelican_tutorial</span><span class="p">.</span><span class="n">md</span>
+<span class="err">├──</span> <span class="n">publishconf</span><span class="p">.</span><span class="n">py</span>
+<span class="err">└──</span> <span class="n">tasks</span><span class="p">.</span><span class="n">py</span>
+
+<span class="mi">3</span> <span class="n">directories</span><span class="p">,</span> <span class="mi">6</span> <span class="n">files</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nb">pwd</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="err">/home/qicai21/Documents/gh_blogs</span>
+</code></pre></div>
+
+<h2>关联到github</h2>
+<p>进入output文件夹，把自己的username.github.io版本库clone下来，注意这里以及后文中的username要替换成自己的Github用户名</p>
+<blockquote>
+<p>我的github 不是空的,不过不要紧,等下项目创建过程中会重置</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ./output
+git init
+git checkout -b main
+git remote add origin git@github.com:qicai21/qicai21.github.io.git
+git pull origin main
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="err">已初始化空的</span> <span class="n">Git</span> <span class="err">仓库于</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">qicai21</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">gh_blogs</span><span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="p">.</span><span class="n">git</span><span class="o">/</span>
+<span class="err">切换到一个新分支</span> <span class="err">&#39;</span><span class="n">main</span><span class="err">&#39;</span>
+<span class="nl">remote</span><span class="p">:</span> <span class="n">Enumerating</span> <span class="nl">objects</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="n">done</span><span class="p">.</span><span class="err"></span><span class="p">[</span><span class="n">K</span>
+<span class="nl">remote</span><span class="p">:</span> <span class="n">Counting</span> <span class="nl">objects</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">3</span><span class="p">),</span> <span class="n">done</span><span class="p">.</span><span class="err"></span><span class="p">[</span><span class="n">K</span>
+<span class="nl">remote</span><span class="p">:</span> <span class="n">Total</span> <span class="mi">3</span> <span class="p">(</span><span class="n">delta</span> <span class="mi">0</span><span class="p">),</span> <span class="n">reused</span> <span class="mi">0</span> <span class="p">(</span><span class="n">delta</span> <span class="mi">0</span><span class="p">),</span> <span class="n">pack</span><span class="o">-</span><span class="n">reused</span> <span class="mi">0</span><span class="err"></span><span class="p">[</span><span class="n">K</span>
+<span class="err">展开对象中</span><span class="o">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">3</span><span class="p">),</span> <span class="mi">607</span> <span class="err">字节</span> <span class="o">|</span> <span class="mf">607.00</span> <span class="n">KiB</span><span class="o">/</span><span class="n">s</span><span class="p">,</span> <span class="err">完成</span><span class="p">.</span>
+<span class="err">来自</span> <span class="n">github</span><span class="p">.</span><span class="nl">com</span><span class="p">:</span><span class="n">qicai21</span><span class="o">/</span><span class="n">qicai21</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span>
+ <span class="o">*</span> <span class="n">branch</span>            <span class="n">main</span>       <span class="o">-&gt;</span> <span class="n">FETCH_HEAD</span>
+ <span class="o">*</span> <span class="p">[</span><span class="err">新分支</span><span class="p">]</span>          <span class="n">main</span>       <span class="o">-&gt;</span> <span class="n">origin</span><span class="o">/</span><span class="n">main</span>
+</code></pre></div>
+
+<h2>调整pelican config</h2>
+<p><code>Makefile</code>, 原配置采用ghp-import,封装了git命令,但不是很好用.修改:</p>
+<div class="highlight"><pre><span></span><code>github: publish
+    <span class="nb">cd</span> <span class="k">$(</span>OUTPUTDIR<span class="k">)</span> <span class="p">;</span> git add . <span class="p">;</span> git commit -am <span class="s2">&quot;generate pelican site&quot;</span> <span class="p">;</span> git push origin <span class="k">$(</span>GITHUB_PAGES_BRANCH<span class="k">)</span>
+</code></pre></div>
+
+<p><code>publishconf.py</code>, 因为DELETE_OUTPUT_DIRECTORY默认为True,修改:</p>
+<div class="highlight"><pre><span></span><code><span class="n">DELETE_OUTPUT_DIRECTORY</span> <span class="o">=</span> <span class="kc">True</span>
+</code></pre></div>
+
+<p><strong>pelican有如下命令</strong>, 但可能最长用的:</p>
+<ul>
+<li>[x] make html</li>
+<li>[ ] make help</li>
+<li>[ ] make clean</li>
+<li>[ ] make regenerate</li>
+<li>[x] make serve </li>
+<li>[ ] make serve-global</li>
+<li>[ ] make devserver</li>
+<li>[x] make publish</li>
+<li>[x] make github</li>
+</ul>
+<h2>添加一些markdowns, 并添加pelican titles</h2>
+<p>将该notebook保存到<code>content/page</code>下,完后，执行以下命令，即可在本机http://127.0.0.1:8000看到效果。</p>
+<p>pelican通过一些列title来自动渲染md文件:</p>
+<ul>
+<li>Title: Pelican+Github </li>
+<li>Date: 2021-01-07 22:20</li>
+<li>Modified: 2021-01-07 23:04</li>
+<li>Tags: python, pelican</li>
+<li>Slug: build-blog-system-by-pelican</li>
+<li>Authors: your name </li>
+<li>Summary: title决定你的,</li>
+<li>Status: draft</li>
+</ul>
+<blockquote>
+<p><code>title</code>: 决定在首页显示的title; 
+<code>slug</code>: 渲染成html的名称;
+<code>status</code>: published or draft or hidden.
+更多参考: <a href="https://docs.getpelican.com">Doc of Pelican</a></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>make publish
+make serve
+</code></pre></div>
+
+<h2>渲染markdowns为html</h2>
+<h2>选择合适的theme</h2>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://getpelican.com/">Pelican</a></li>
+                            <li><a href="https://www.python.org/">Python.org</a></li>
+                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
