@@ -1,660 +1,199 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-        <meta charset="utf-8" />
-        <meta name="generator" content="Pelican" />
-        <title>A Pelican Blog - data_analysis</title>
-        <link rel="stylesheet" href="../theme/css/main.css" />
-        <link href="https://www.qicai21.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="A Pelican Blog RSS Feed" />
+    <title>data_analysis - Burgan的干货站</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="..//favicon.ico" rel="icon">
+
+
+    <meta name="author" content="Burgan" />
+    <meta name="keywords" content="data_analysis" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="Burgan的干货站" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Burgan的干货站"/>
+        <meta property="og:url" content=".."/>
+        <meta property="og:description" content="Burgan的干货站"/>
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../theme/css/pygments/friendly.css" rel="stylesheet">
+    <link rel="stylesheet" href="../theme/css/style.css" type="text/css"/>
+
+
+
 </head>
+<body>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="../">A Pelican Blog</a></h1>
-                <nav><ul>
-                    <li><a href="../category/python.html">python</a></li>
-                    <li><a href="../category/todo.html">todo</a></li>
-                    <li><a href="../category/ubuntu.html">ubuntu</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="../" class="navbar-brand">
+Burgan的干货站            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="../category/projects.html">Projects</a>
+                        </li>
+                        <li >
+                            <a href="../category/python.html">Python</a>
+                        </li>
+                        <li >
+                            <a href="../category/todo.html">Todo</a>
+                        </li>
+                        <li >
+                            <a href="../category/ubuntu.html">Ubuntu</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="../cft_project_development.html">粮食价格信息抓取项目记录</a></h1>
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <article>
+                <h2><a href="../cft_project_development.html">粮食价格信息抓取项目记录</a></h2>
+                    <div class="well well-sm">
 <footer class="post-info">
-        <abbr class="published" title="2021-01-03T10:00:00+00:00">
-                Published: Sun 03 January 2021
-        </abbr>
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2021-01-03T10:00:00+08:00"> Sun 03 January 2021</time>
+    </span>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="../author/burgan.html">Burgan</a>
-        </address>
-<p>In <a href="../category/python.html">python</a>.</p>
-<p>tags: <a href="../tag/python.html">python</a> <a href="../tag/data_analysis.html">data_analysis</a> </p>
-</footer><!-- /.post-info --><h2>总体计划</h2>
-<ol>
-<li>目录页内容提取分析,抓到文章时间,类型,url</li>
-<li>页面内容提取器,实现文章解析:<ul>
-<li>能完整提取价格的各项信息:品质,地点,价格,于前日比较的情况;</li>
-<li>能找到评论内容段落,简单处理评论(i.e. 将没用的评论内容删掉,留干货);</li>
-<li>遇到无法识别的内容弹出对话框,要求添加解释器用于之后识别.</li>
-</ul>
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/python.html">python</a>
+        /
+	<a href="../tag/data_analysis.html">data_analysis</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>抓取ChinaFeedTrading的价格信息,并自动生成格式化报文项目.涉及request抓取, regex, mongodb, matplotlib等.</p>
+                    <a class="btn btn-default btn-xs" href="../cft_project_development.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<div id="aboutme">
+    <p>
+      <strong>About Burgan</strong><br/>
+        PYTHON, UBUNTU, AND More.
+    </p>
+</div><!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="mailto:qicai21@gmail.com"><i class="fa fa-envelope-o fa-lg"></i> envelope-o</a></li>
+    <li class="list-group-item"><a href="https://www.linkedin.com/in/东北-郭-b05753166/"><i class="fa fa-linkedin-square fa-lg"></i> linkedin</a></li>
+    <li class="list-group-item"><a href="https://github.com/qicai21"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+  </ul>
 </li>
-<li>建立数据库</li>
-<li>目录迭代器,滚动向下查找第二页,第三页, 迭代器要跟数据库比对,没有收录的数据进行解析,收录的就忽略,支持full_inspection | simple_inspection两种模式.</li>
-</ol>
-<h2>Developing Log</h2>
-<h3>12-15</h3>
-<p>Directory Page Resolve methods are ready.可以实现对目录页内容的提取,分类,时间.</p>
-<ul>
-<li>get_price_list</li>
-<li>li_content_resolve</li>
-</ul>
-<h3>12-17</h3>
-<p>实现了分析价格的部分,但代码整体比较乱,正在考虑如何重构代码.</p>
-<p>需要一个语句解释器:
-- 锦州港地区水分15%新粮收购价2500-2530元/吨,默认贸易商收购价
-- 黑龙江哈尔滨地区新玉米收购价格在2335-2385元/吨，下跌10元/吨，水分15%</p>
-<p>也就是说价格信息分为3种,一种是国内市场总体情况,一种是区域市场具体价格,一种是南北港价格比较.三个报告,三个解释器,统一继承于一个父类,统一的方法,要重新构思</p>
-<p>能post数据到数据库,mongodb</p>
-<p>文章要不要建一个文章类呢?带有他们自己的pattern_manager</p>
-<h3>12-20</h3>
-<p>国内,东北,南北港样品文章(12-18日)已经能正常解析成数据.</p>
-<p>在此环节需要git一下了.</p>
-<p>剩余主要任务:</p>
-<ul>
-<li>首页迭代器尚未创建</li>
-<li>pyqd那个界面装上</li>
-<li>连上数据库</li>
-</ul>
-<p>当前代码主要缺陷:
-- page category 换成中文的
-- Row 34 @CFTPage.py: __set_comment_content这个名字太烂了,换一个
-- 注释不完整,命名也该调整一下
-- 换行真的很头疼</p>
-<p><strong>python-json 写入中文问题</strong>:  重要的就是open时的encoding和dump的ensure_ascii参数</p>
-<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;traders.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">writefile</span><span class="p">:</span>
-<span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data_str</span><span class="p">,</span> <span class="n">writefile</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</code></pre></div>
+<!-- End Sidebar/Social -->
 
-<h3>12-28</h3>
-<p>完成图了mongodb和pymongo的学习,回来调整代码.</p>
-<h2>第一阶段完成</h2>
-<blockquote>
-<h1>Congratulations! [2020-12-31 05:44]</h1>
-<p>数据已经爬完,正逢2020-12-31,在这最后的时间里,总结一下,承前启后.</p>
-</blockquote>
-<p>截至12-31,下载完所有的2018-2020年的数据,git 版本号为:</p>
-<div class="highlight"><pre><span></span><code>commit ffdf6ee8b4f9b5d60a8d4af97104e555a1bbbfab <span class="o">(</span>HEAD -&gt; master<span class="o">)</span>
-Author: qicai21 &lt;qicai21@gmail.com&gt;
-Date:   Thu Dec <span class="m">31</span> <span class="m">22</span>:30:23 <span class="m">2020</span> +0800
-
-    CFT price and commantaries data <span class="m">2018</span>-2020, download completed!
-</code></pre></div>
-
-<h3>重要知识点</h3>
-<hr>
-<h4>1. logging</h4>
-<p>过往的代码中日志被忽略,主要原因是代码只在很有有限的范围内运行,输出到控制台上与输出到日志中没有多大不同.但实际的程序运行中并非如此,程序要连续的运行,你需要知道发生了什么,对哪些数据选择了何种方式进行处理,是默认pass掉还是被当成另一种数据被解析了;有哪些不打紧的异常被pass掉了,等等这些.</p>
-<p><a href="https://www.cnblogs.com/yyds/p/6901864.html">Python之日志处理（logging模块）</a></p>
-<h4>2. Custom Exception</h4>
-<p>爬网页时利用自定义的异常来,可以实现不同模块之间功能的衔接,能避过分复杂的参数被传来传去.</p>
-<h4>3. json and file operation</h4>
-<p>将控制台输入缓存起来,这样就可以避免大量的重复性输入,但要注意缓存的生命周期,为避免全局变量,其实将其存入数据库或者放到一个json文件中也不错.重点是json文件想要保存中文,就要避免其默认的ascii转码处理. <code>dumps</code>  vs  <code>loads</code>, <code>dump</code> vs  <code>load</code> 要分分清楚. 这里我的理解是:  <code>dumps</code> 和 <code>loads</code> 是"dump-to-string", "load-from-string"的意识,其操作都是json-string这一特殊的东西,而dump和load则是文件对象.</p>
-<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;traders.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">writefile</span><span class="p">:</span>
-<span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data_str</span><span class="p">,</span> <span class="n">writefile</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</code></pre></div>
-
-<h4>4. regex</h4>
-<p>linux命令行,vim搜索,数据库数据匹配,网页解析,文意解析,数据提取,可以说regex简直神技!<strong>奥义在于使用字符组成的结构进行文本检索,而不限定于字符本身.</strong></p>
-<ul>
-<li>
-<p>re.compile.find 是否有顺序要求? -- 有的</p>
+<!-- Sidebar/Tag Cloud -->
+<li class="list-group-item">
+  <a href="../"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <ul class="list-group " id="tags">
+    <li class="list-group-item tag-1">
+      <a href="../tag/linux.html">linux</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="../tag/python.html">python</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="../tag/ubuntu.html">ubuntu</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="../tag/web.html">web</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="../tag/to-do.html">to-do</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="../tag/pelican.html">pelican</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="../tag/data_analysis.html">data_analysis</a>
+    </li>
+  </ul>
 </li>
-<li>
-<p>re.compile能不能接受str.format方式来构造 --可以这样,但是<code>{}</code>符号在解析时会冲突,不建议这样做.</p>
+<!-- End Sidebar/Tag Cloud -->
+
+<!-- Sidebar/Images -->
+<li class="list-group-item">
+  <ul class="list-group" id="links">
+    <img width="100%" class="img-thumbnail" src="/assets/cn_tiktok_qr.png"/>
+  </ul>
 </li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="n">ptn1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s</span><span class="si">{2}{n}</span><span class="s2">.*?old&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># 这个就会报错</span>
-<span class="n">ptn2</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s</span><span class="si">{2}</span><span class="s2">\d.*?old&quot;</span><span class="p">)</span>
-<span class="n">ptn2</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;lili is  1 years old&quot;</span><span class="p">)</span>
-</code></pre></div>
+<!-- End Sidebar/Images -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
 
-<ul>
-<li>regex的非匹配</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="n">txt1</span> <span class="o">=</span> <span class="s2">&quot;东北地区玉米深加工企业调价之外大部企稳&quot;</span>
-<span class="n">txt2</span> <span class="o">=</span> <span class="s2">&quot;东北地区玉米ddgs企业成交价190-元&quot;</span>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2021 Burgan
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh_cn"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a>
+    &quot;<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Burgan的干货站</span>&quot; by <a xmlns:cc="http://creativecommons.org/ns#" href=".." property="cc:attributionName" rel="cc:attributionURL">Burgan</a> is
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh_cn">Creative Commons Attribution-NonCommercial 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="../theme/js/jquery.min.js"></script>
 
-<span class="c1"># 匹配1不匹配2</span>
-<span class="n">commc</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;东北地区([^0-9a-zA-Z])*$&quot;</span><span class="p">)</span>
-<span class="n">price</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;东北地区\w*(收购|价).*[0-9-]</span><span class="si">{4}</span><span class="s2">元?&quot;</span><span class="p">)</span>
-<span class="n">price</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">txt2</span><span class="p">)</span>
-</code></pre></div>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../theme/js/bootstrap.min.js"></script>
 
-<p><strong>group and capture expression:  <code>?:</code>  &amp;  <code>?=</code>  &amp; <code>?!</code></strong></p>
-<p>re.findall依赖括号进行匹配,表达式中同样存在或关系时如: "(水分|水份)(/d{2})%"就尴尬了,此时就用到了<code>?:</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">pttn</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(?:水分|水份)[\u4e00-\u9fa5]*\s*(\d</span><span class="si">{2}</span><span class="s2">\.?\d*)\s*%&quot;</span><span class="p">)</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;水分15%玉米贸易商收购价格为2440-2500元/吨&quot;</span>
-<span class="n">pttn</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="c1"># 取消掉了水分括号的捕获含义</span>
-</code></pre></div>
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../theme/js/respond.min.js"></script>
 
-<p><code>?=</code>和<code>?!</code>看下边.</p>
-<blockquote>
-<p>The difference between <code>?=</code> and <code>?!</code> is that the former requires the given expression to match and the latter requires it to <strong>not</strong> match. For example <code>a(?=b)</code> will match the "a" in "ab", but not the "a" in "ac". Whereas <code>a(?!b)</code> will match the "a" in "ac", but not the "a" in "ab".</p>
-</blockquote>
-<p><strong>这个技巧很重要!!</strong></p>
-<ul>
-<li>
-<p>断言——<strong>(?!pattern) 零宽负向先行断言</strong> 或者 <strong>(?&lt;!--pattern) 零宽负向后行断言</strong> 均可。这个就是不以pattern开头/结尾的匹配</p>
-</li>
-<li>
-<p>regex和文本分析的机器学习模块</p>
-</li>
-</ul>
-<p>--&gt; 这里并不是说regex来代替文本分析,实际上,完全没有办法对比.但是如果不了解文本分析模块时,regex几乎是能用来处理文本的唯一工具了.这里要备案一下文本处理工具.其实这些工具如同numpy&amp;pandas&amp;matpoltlib一样,是并行交替使用的.</p>
-<blockquote>
-<p><a href="https://www.jiqizhixin.com/articles/2018-10-29-26">8种Python文本处理工具集</a></p>
-</blockquote>
-<h4>5. tqdm</h4>
-<p>不仅是一个好的装饰,其交互性也更直观,有什么比看着进度条一直走更excited的事呢!</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 
-<span class="k">def</span> <span class="nf">extract_data_all_of_the_links</span><span class="p">(</span><span class="n">links</span><span class="p">):</span>
-<span class="n">bar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">links</span><span class="p">)</span>                                                  
-<span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">bar</span><span class="p">:</span>                                                            
-<span class="n">bar</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="n">show_page_info</span><span class="p">(</span><span class="n">link</span><span class="p">))</span>                                                                    <span class="n">extract_page_data</span><span class="p">(</span><span class="o">**</span><span class="n">link</span><span class="p">)</span> 
-<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span> 
 
-<span class="k">def</span> <span class="nf">show_page_info</span><span class="p">(</span><span class="n">dict_item</span><span class="p">):</span> 
-<span class="n">d</span> <span class="o">=</span> <span class="n">dict_item</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>  
-<span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;#</span><span class="si">{</span><span class="n">dict_item</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: report of </span><span class="si">{</span><span class="n">dict_item</span><span class="p">[</span><span class="s1">&#39;category&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">[</span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">]&quot;</span>
-</code></pre></div>
-
-<h4>6. javascript</h4>
-<p>这个真的,chrome console 会用到,mongodb会用到,大量控制台都是javascript的天下.</p>
-<blockquote>
-<p>关于javascript基础,<a href="https://www.w3cplus.com/javascript/6-ways-to-declare-javascript-functions.html">声明JavaScript函数的六种方法</a>一文真的很好,里边的用例基本上涵盖了大部分js的适用功能和写法.</p>
-</blockquote>
-<p><strong>声明变量</strong></p>
-<p>使用var声明的变量，其作用域为该语句所在的函数内，且存在变量提升现象；变量提升现象就是先赋值后声明一样能起作用.</p>
-<p>使用let声明的变量，其作用域为该语句所在的代码块内，不存在变量提升；</p>
-<p>使用const声明的是常量，在后面出现的代码中不能再修改该常量的值。 const比较好理解.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">function</span> <span class="nx">varTest</span><span class="p">()</span> <span class="p">{</span>
-<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
-<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>  <span class="c1">// 同样的变量!</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>  <span class="c1">// 2</span>
-<span class="p">}</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>  <span class="c1">// 2</span>
-<span class="p">}</span>
-
-<span class="kd">function</span> <span class="nx">letTest</span><span class="p">()</span> <span class="p">{</span>
-<span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
-<span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>  <span class="c1">// 不同的变量</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>  <span class="c1">// 2</span>
-<span class="p">}</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>  <span class="c1">// 1</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p><strong>创建一个函数</strong></p>
-<p>函数的声明方式可以拆解为一个匿名函数+声明一个变量来指向这个函数,2个过程写在了一起.</p>
-<p>另外有<code>=&gt;</code>这种语法糖的支持.</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">chars</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;it&#39;s &quot;</span> <span class="o">+</span> <span class="nx">chars</span><span class="p">);})</span>
-<span class="kd">var</span> <span class="nx">show_chars</span><span class="p">;</span>
-<span class="nx">show_chars</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">chars</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;it&#39;s &quot;</span> <span class="o">+</span> <span class="nx">chars</span><span class="p">);})</span>
-
-<span class="c1">// 所以,以下任何一种方式都可以使用</span>
-<span class="kd">var</span> <span class="nx">show_chars</span><span class="p">(</span><span class="nx">chars</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;it&#39;s + chars&quot;</span><span class="p">);}</span>
-<span class="kd">var</span> <span class="nx">show_chars</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">chars</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;it&#39;s &quot;</span> <span class="o">+</span> <span class="nx">chars</span><span class="p">);})</span>
-<span class="kd">var</span> <span class="nx">show_chars</span> <span class="o">=</span> <span class="p">(</span><span class="nx">chars</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;it&#39;s &quot;</span> <span class="o">+</span> <span class="nx">chars</span><span class="p">);}</span>
-</code></pre></div>
-
-<p><strong>创建一个类</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kr">class</span> <span class="nx">Names</span> <span class="p">{</span> 
-<span class="nx">constructor</span> <span class="p">(</span><span class="nx">names</span><span class="p">)</span> <span class="p">{</span> 
-<span class="k">this</span><span class="p">.</span><span class="nx">names</span> <span class="o">=</span> <span class="nx">names</span><span class="p">;</span> 
-<span class="p">}</span> 
-<span class="nx">contains</span><span class="p">(</span><span class="nx">names</span><span class="p">)</span> <span class="p">{</span> 
-<span class="k">return</span> <span class="nx">names</span><span class="p">.</span><span class="nx">every</span><span class="p">((</span><span class="nx">name</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">names</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span> 
-<span class="p">}</span> 
-<span class="p">}</span> 
-
-<span class="kd">var</span> <span class="nx">countries</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Names</span><span class="p">([</span><span class="s1">&#39;UK&#39;</span><span class="p">,</span> <span class="s1">&#39;Italy&#39;</span><span class="p">,</span> <span class="s1">&#39;Germany&#39;</span><span class="p">,</span> <span class="s1">&#39;France&#39;</span><span class="p">]);</span> 
-<span class="nx">countries</span><span class="p">.</span><span class="nx">contains</span><span class="p">([</span><span class="s1">&#39;UK&#39;</span><span class="p">,</span> <span class="s1">&#39;Germany&#39;</span><span class="p">]);</span> <span class="c1">// =&gt; true </span>
-<span class="nx">countries</span><span class="p">.</span><span class="nx">contains</span><span class="p">([</span><span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="s1">&#39;Italy&#39;</span><span class="p">]);</span> <span class="c1">// =&gt; false</span>
-</code></pre></div>
-
-<p>​    </p>
-<p><strong>if-else循环怎么写</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="nx">condition1</span><span class="p">)</span> <span class="p">{</span>
-<span class="c1">//  block of code to be executed if condition1 is true</span>
-<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">condition2</span><span class="p">)</span> <span class="p">{</span>
-<span class="c1">//  block of code to be executed if the condition1 is false and condition2 is true</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-<span class="c1">//  block of code to be executed if the condition1 is false and condition2 is false</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p><strong>for循环怎么写</strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">ig</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">ig</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">ig</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The number is &quot;</span> <span class="o">+</span> <span class="nx">ig</span> <span class="o">+</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">);</span>
-<span class="p">};</span>
-
-<span class="c1">// 下边省略了var也可以运行.</span>
-<span class="k">for</span> <span class="p">(</span><span class="nx">ig</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">ig</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">ig</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The number is &quot;</span> <span class="o">+</span> <span class="nx">ig</span> <span class="o">+</span> <span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">);</span>
-<span class="p">};</span>
-
-<span class="c1">// for...in</span>
-<span class="kd">var</span> <span class="nx">pairs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;shenyang&quot;</span><span class="o">:</span> <span class="s2">&quot;021&quot;</span><span class="p">,</span> <span class="s2">&quot;yingkou&quot;</span><span class="o">:</span> <span class="s2">&quot;0417&quot;</span><span class="p">};</span>
-<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="k">in</span> <span class="nx">pairs</span><span class="p">){</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="s2">&quot;city no: &quot;</span> <span class="o">+</span> <span class="nx">pairs</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
-<span class="p">}</span>
-
-<span class="c1">// for...of</span>
-<span class="kd">var</span> <span class="nx">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bejing&#39;</span><span class="p">,</span> <span class="s1">&#39;shanghai&#39;</span><span class="p">,</span> <span class="s1">&#39;guangzhou&#39;</span><span class="p">];</span>
-<span class="k">for</span> <span class="p">(</span><span class="nx">city</span> <span class="k">of</span> <span class="nx">lst</span><span class="p">){</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;i love &quot;</span> <span class="o">+</span> <span class="nx">city</span><span class="p">);}</span>
-</code></pre></div>
-
-<p><strong>时间类型的处理</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s2">&quot;2020-12-31&quot;</span><span class="p">)</span>
-<span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
-<span class="nx">d</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">();</span>
-</code></pre></div>
-
-<p><strong>list和dict类型</strong></p>
-<p>这里注意Array的index规则与python不同</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bejing&#39;</span><span class="p">,</span> <span class="s1">&#39;shanghai&#39;</span><span class="p">,</span> <span class="s1">&#39;guangzhou&#39;</span><span class="p">];</span>
-<span class="nx">lst</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&quot;bejing&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="nx">lst</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&quot;guangzhou&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="nx">lst</span><span class="p">[</span><span class="nx">lst</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;guangzhou&quot;</span>
-<span class="nx">lst</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&quot;shenzhen&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="c1">// 没有的值会返回-1;python返回ValueError</span>
-
-<span class="kd">var</span> <span class="nx">pairs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;shenyang&quot;</span><span class="o">:</span> <span class="s2">&quot;021&quot;</span><span class="p">,</span> <span class="s2">&quot;yingkou&quot;</span><span class="o">:</span> <span class="s2">&quot;0417&quot;</span><span class="p">};</span>
-<span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">pairs</span><span class="p">);</span>
-<span class="nb">Object</span><span class="p">.</span><span class="nx">values</span><span class="p">(</span><span class="nx">pairs</span><span class="p">);</span>
-</code></pre></div>
-
-<p><strong>字符串的处理</strong></p>
-<p>没有现成的string formater可用,自己声明,或直接用"str1" + variable + "str2"吧</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">String</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">format</span><span class="p">)</span> <span class="p">{</span>
-<span class="nb">String</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">format</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-<span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">;</span>
-<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/{(\d+)}/g</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">match</span><span class="p">,</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{</span> 
-<span class="k">return</span> <span class="k">typeof</span> <span class="nx">args</span><span class="p">[</span><span class="nx">number</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;undefined&#39;</span>
-<span class="o">?</span> <span class="nx">args</span><span class="p">[</span><span class="nx">number</span><span class="p">]</span>
-<span class="o">:</span> <span class="nx">match</span>
-<span class="p">;</span>
-<span class="p">});</span>
-<span class="p">};</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p><strong>对应print和input方法</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">ans</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="s2">&quot;input something&quot;</span><span class="p">,</span> <span class="s2">&quot;default string&quot;</span><span class="p">);</span> 
-<span class="c1">// 这个defuault string是输入框中默认显示的string,不是没输入返回的默认值.</span>
-</code></pre></div>
-
-<h4>7. xpath 和 chrome console</h4>
-<p>一种方法是引入并使用jquery,通过<code>$('div', '.div_class')</code>来获取.但要确认jquery被正确的加载和使用.有些网页没有引用jquery,就要自己引用:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span> <span class="nx">jq</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span>
-<span class="nx">jq</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js&quot;</span><span class="p">;</span>
-<span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">jq</span><span class="p">);</span>
-</code></pre></div>
-
-<p>另一种方式是直接使用xpath,<code>$x("//table//url/li")</code></p>
-<div class="highlight"><pre><span></span><code><span class="nx">$x</span><span class="p">(</span><span class="s2">&quot;//li/a[contains(@href, &#39;2019-08-27&#39;)]&quot;</span><span class="p">)</span> <span class="c1">// 所有href中有2019-08-27的a标签</span>
-<span class="nx">$x</span><span class="p">(</span><span class="s2">&quot;//a[contains(@title, &#39;东北&#39;)]/ancestor::td&quot;</span><span class="p">)</span>  <span class="c1">// 所有含有带有title中有东北的a标签的td标签.</span>
-</code></pre></div>
-
-<h4>8. jupyter notebook使用本地python类</h4>
-<p>在notebook中要import自己写的文件类,需要一点特殊设置</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">module_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">))</span>
-<span class="k">if</span> <span class="n">module_path</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">module_path</span><span class="p">)</span>
-</code></pre></div>
-
-<h3>接下来的开发计划</h3>
-<ul>
-<li>把单日简单查询和同步功能添加上.</li>
-</ul>
-<p>做了daliy_update.py,执行这个更新第一页就ok.</p>
-<ul>
-<li>
-<p>综合看一下下载的数据,反复用pandas玩几遍.</p>
-</li>
-<li>
-<p>能output简单的日报,哪怕版本简陋也可以</p>
-</li>
-<li>
-<p>查询大商所的数据,做同步下载</p>
-</li>
-<li>
-<p>找到煤炭南北港价格的网站,并做同步</p>
-</li>
-<li>
-<p>怎么爬网页表格数据</p>
-</li>
-<li>
-<p>爬新闻标题,做新闻字段分析</p>
-</li>
-<li>
-<p>报告形成视频号内容</p>
-</li>
-</ul>
-<blockquote>
-<p>一点个人感想</p>
-<ul>
-<li>把大计划拆成小计划,一件一件的做简直太重要了,不然百行以上的项目真的很难下手,很难静下来动手去做.</li>
-<li>git时,超过2个短局才能描述清楚时,那就以为着你漏掉了该commit 的点.适时的git真的是一个好的习惯,好习惯靠训练的.</li>
-<li>--ditto--</li>
-</ul>
-</blockquote>
-<h2>二阶段开发草记</h2>
-<h3>1. 如何使jupyter notebook完全显示dateframe</h3>
-<div class="highlight"><pre><span></span><code><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_columns</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># 取消列缺省</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># 取消行缺省</span>
-</code></pre></div>
-
-<h3>2. 让dateframe带颜色</h3>
-<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">render</span><span class="p">,</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;涨跌&quot;</span><span class="p">]</span> <span class="p">)</span> <span class="c1"># 这个subset参数支持pandas.IndexSlice[],具体设置根据情况google</span>
-</code></pre></div>
-
-<h3>3. 利用dataframe_image模块将dataframe转成img</h3>
-<p>优点,代码简单,直接保存图片就行;缺点:图片的分辨率无法调节,清晰度马马虎虎,很多东西不能定制.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">dataframe_image</span> <span class="k">as</span> <span class="nn">dfi</span>
-
-<span class="c1"># 已经有new_df, 将其columns渲染一下,保存依然有效果</span>
-<span class="n">export_styled</span> <span class="o">=</span> <span class="n">new_df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">applymap</span><span class="p">(</span><span class="n">render_with_value</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;涨跌&quot;</span><span class="p">])</span>
-<span class="n">dfi</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="n">export_styled</span><span class="p">,</span> <span class="s2">&quot;./eg_df_image.png&quot;</span><span class="p">)</span>
-</code></pre></div>
-
-<h3>4. dataframe的multiIndex</h3>
-<div class="highlight"><pre><span></span><code><span class="n">region</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;beijing&quot;</span><span class="p">,</span> <span class="s2">&quot;beijing&quot;</span><span class="p">,</span> <span class="s2">&quot;shanghai&quot;</span><span class="p">,</span> <span class="s2">&quot;shanghai&quot;</span><span class="p">,</span> <span class="s2">&quot;dalian&quot;</span><span class="p">,</span> <span class="s2">&quot;guangzhou&quot;</span><span class="p">]</span>
-<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
-<span class="n">new_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span>
-<span class="nb">zip</span><span class="p">(</span><span class="n">regions</span><span class="p">,</span> <span class="n">numbers</span><span class="p">),</span>
-<span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;地区&#39;</span><span class="p">,</span> <span class="s1">&#39;No&#39;</span><span class="p">]</span>
-<span class="p">)</span>
-</code></pre></div>
-
-<h3>5. 可视化模块的选择</h3>
-<p>用Python做数据分析时，用先<code>pandas</code>先进行数据处理，然后再用<code>Matplotlib</code>、<code>Seaborn</code>、<code>Plotly</code>、<code>Bokeh</code>等对<code>dataframe</code>或者<code>series</code>进行可视化操作。</p>
-<p>从最新的<code>pandas</code>版本0.25.3开始，可以用<code>DataFrame.plot</code>画出简单图形。可以使用<code>Plotly</code>、<code>Bokeh</code>作为可视化的backend，直接实现交互性操作，并简化和统一了参数。</p>
-<p>目前，<code>pandas</code>的backend支持以下几个可视化包。</p>
-<ul>
-<li>
-<p>Plotly</p>
-</li>
-<li>
-<p>Holoviews</p>
-</li>
-<li>
-<p>Matplotlib</p>
-</li>
-<li>
-<p>Pandas_bokeh</p>
-</li>
-<li>
-<p>Hyplot</p>
-</li>
-</ul>
-<p>关于不同包的选择,仁者见仁,具体还要看场景.如果只是简单输出一下,就pd的plot就行,要是讲究样式,就要根据不同需求和场景选择合适的模块了.通常来讲,matplotlib更底层,功能更多,当然参数也更多,类似于编辑器中的<code>vim</code>和文本解释中的<code>regex</code>;<code>Plotly</code>和<code>Seaborn</code>就集成和简化了不少,有点xpath的感觉,最外边是pandas的plot,类比为beautifulsoup.</p>
-<div class="highlight"><pre><span></span><code><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="s1">&#39;plotly&#39;</span>
-
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">df as :</span>
-<span class="sd">page_date   region  price_low</span>
-<span class="sd">0   2020-01-15  东北最高    1600.000000</span>
-<span class="sd">0   2020-01-15  东北平均    1572.500000</span>
-<span class="sd">11388   2020-01-15  绥化淀粉    1672.000000</span>
-<span class="sd">1   2020-01-17  东北最高    1600.000000</span>
-<span class="sd">1   2020-01-17  东北平均    1572.500000</span>
-<span class="sd">...plotly.graph_objs._figure.Figure</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="n">shapiro</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;price_low&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;page_date&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;region&#39;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
-
-<p><code>plotly</code> 优点是可以交互,挺好看的,以及方便的转为html.但基于我个人的一贯鸟行,我选择<code>matplotlib</code>, 当然,这里还有一个重要的点,就是如何生成html,matplotlib可以,但是需要指定专门backend,这点稍后再探讨.</p>
-<blockquote>
-<p><strong>关于<code>matplotlib</code></strong></p>
-<p>plot, pyplot, subplots.  figure and axes.</p>
-<p><a href="https://matplotlib.org/tutorials/introductory/usage.html#sphx-glr-tutorials-introductory-usage-py">matplotlib官方文档-基础章节一</a></p>
-<p>Tick, Locator and Formatter</p>
-<p><a href="https://jishuin.proginn.com/p/763bfbd2d660">Matplotlib绘图遇到时间刻度...</a></p>
-</blockquote>
-<p><img alt="一张图看懂matplotlib" src="/home/qicai21/Documents/gh_blogs/content/images/image-20210114065424444.png"></p>
-<p>如何呈现数据,我碰到了一个非常困扰我的问题,在这个问题上花费的时间远比其他加一起都多.</p>
-<ul>
-<li>清晰的坐标</li>
-<li>一个坐标轴提取和设置的方法</li>
-<li>不要牛逼,要大家能看得懂: </li>
-<li>即时价格和15日均价</li>
-<li>不同地区</li>
-<li>全国图<ul>
-<li>东北地区</li>
-<li>山东</li>
-<li>华北</li>
-<li>南方销区</li>
-</ul>
-</li>
-<li>东北<ul>
-<li>黑龙江</li>
-<li>内蒙</li>
-<li>吉林</li>
-<li>辽宁</li>
-</ul>
-</li>
-<li>山东,华北,南方<ul>
-<li>南方可能会分</li>
-</ul>
-</li>
-<li>港口价格走势</li>
-</ul>
-<h3>6. 输出方案的选择</h3>
-<p>以如下df为例,可选方案有三:</p>
-<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<span class="n">cat</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;sun&#39;</span><span class="p">,</span> <span class="s1">&#39;moon&#39;</span><span class="p">,</span> <span class="s1">&#39;stars&#39;</span><span class="p">],</span> <span class="mi">20</span><span class="p">),</span>
-<span class="n">date</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;2021-1-19&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">20</span><span class="p">),</span>
-<span class="n">value</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">),</span>
-<span class="n">count</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</code></pre></div>
-
-<p><strong>将dataframe,plot依次转成html-table,和canvas,然后将html转成所需要的pdf或image.</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># dataframe 有直接to_html方法</span>
-<span class="n">df</span><span class="o">.</span><span class="n">to_html</span><span class="p">()</span>
-
-<span class="c1"># plot就需要先用plotly画出来,因为plotly支持write_html和to_html方法.</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">backend</span> <span class="o">=</span> <span class="s1">&#39;plotly&#39;</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cat&#39;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="s1">&#39;test_canvas.html&#39;</span><span class="p">)</span>
-</code></pre></div>
-
-<ul>
-<li>将dataframe,plot都转成图片,嵌入到最终输出的文档中,e.g.: markdown或html,然后再拼接.如下给出dataframe输出为图片的完整示例,略去scatter-line的部分.</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">pandas.plotting</span> <span class="kn">import</span> <span class="n">table</span>
-
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">1400</span><span class="p">)</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">frame_on</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="n">table</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;df_image_HD.png&#39;</span><span class="p">)</span>
-</code></pre></div>
-
-<p>​     </p>
-<ul>
-<li>将dataframe转成html,plot存成image,并于html中引用,然后将html转成image.</li>
-</ul>
-<p>这个是我最终选择的方案,不一定是最优方案,但满足了该阶段学习了解matplotlib的需求,同时方案二中将df画成table的方法有其弊端,就是间距和table的样式调整非常费力,远不如将其html化,然后通过bootstrap来配置样式方便.</p>
-<p>至于plot转成图片还是html,这个看需求,复杂图片,不需要交互就matplotlib转图片;数据相对简单,有渲染成可交互html的svg就用plotly,特别是plotly渲染天生与bootstrap完美结合.</p>
-<h3>7. html转image和pdf的转换</h3>
-<p>这里会使用一个module, imgkit,他调用的是qt4,实现将html转换成img.这里有个小tips,imgkit最找是用来将jupyter notebook转为image的.</p>
-<p><a href="https://pypi.org/project/imgkit/">kitimg的官网</a></p>
-<p><a href="https://blog.csdn.net/threegirl/article/details/81107939?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-7.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-7.control">pythonhtml2image: imgkit 和 wkhtmltoimage的坑</a></p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">imgkit</span>
-
-<span class="c1"># 可以将网页输出为图片</span>
-<span class="n">imgkit</span><span class="o">.</span><span class="n">from_url</span><span class="p">(</span><span class="s1">&#39;http://google.com&#39;</span><span class="p">,</span> <span class="s1">&#39;out.jpg&#39;</span><span class="p">)</span>
-<span class="c1"># 可以将本地html文件转成图片</span>
-<span class="n">imgkit</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s1">&#39;test.html&#39;</span><span class="p">,</span> <span class="s1">&#39;out.jpg&#39;</span><span class="p">)</span>
-<span class="c1"># 可以将字符串转成图片</span>
-<span class="n">imgkit</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">,</span> <span class="s1">&#39;out.jpg&#39;</span><span class="p">)</span>
-</code></pre></div>
-
-<h3>8. and something etc</h3>
-<p><code>matplotlib</code>显示横纵坐标线和线型设置</p>
-<div class="highlight"><pre><span></span><code><span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-</code></pre></div>
-
-<p><code>matplotlib</code>风格设置</p>
-<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span> 
-</code></pre></div>
-
-<p><code>matplotlib</code>显示汉字</p>
-<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;WenQuanYi Micro Hei Mono&#39;</span><span class="p">]</span>
-</code></pre></div>
-
-<p><code>matplotlib</code>的几种基本图形</p>
-<p>scatter散点图,</p>
-<p>plot画折线图,</p>
-<p>bar条图,</p>
-<p>hist画直方图,</p>
-<p>box箱线图.</p>
-<h3>9. Pandas的SettingwithCopyWarning</h3>
-<p>经常遇到这种警告,说我们执行了类似<code>df['col'] = df['col_1'].apply(lambda x: func(x))</code>这种操作,说应该在copy上执行而不是在原df上.在代码中找又很麻烦,而warning又不提示具体位置,如果暴力的停用警告其实未必可取,反而可以通过将警告升级为异常来找出问题所在位置.</p>
-<p>下边是用例:</p>
-<div class="highlight"><pre><span></span><code><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;mode.chained_assignment&#39;</span><span class="p">,</span> <span class="s1">&#39;raise&#39;</span><span class="p">)</span>  <span class="c1"># 把警告当成异常,会显示异常的位置</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;mode.chained_assignment&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># 忽略警告,直接执行</span>
-<span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">bidder</span> <span class="o">==</span> <span class="s1">&#39;parakeet2004&#39;</span><span class="p">][</span><span class="s1">&#39;bidderrate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
-</code></pre></div>
-
-<p><strong>附带说一句,通常问题出现在将df作为参数传入一个函数时,忘记了read_df=param_df这样的操作,导致df操作跨域了.</strong></p>
-<h3>10. The part of hard-core</h3>
-<p>scipy可以直接对数据进行验证,目前我们接触到的主要是正态分布验证以及画出分布状况.</p>
-<p>画出分布状况</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-<span class="n">stats</span><span class="o">.</span><span class="n">probplot</span><span class="p">(</span><span class="n">df_area</span><span class="p">[</span><span class="s1">&#39;dist&#39;</span><span class="p">],</span> <span class="n">dist</span><span class="o">=</span><span class="s1">&#39;norm&#39;</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="n">plt</span><span class="p">)</span>
-</code></pre></div>
-
-<ul>
-<li>正态分布</li>
-</ul>
-<p>三种不同的验证算法,除第一种外通过return_result[-1]返回的P值可以查看是否符合正太分布,结果大于0.05就符合正太分布的预期.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">shapiro</span><span class="p">(</span><span class="n">h_list</span><span class="p">))</span>  <span class="c1"># 偏小样本</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">kstest</span><span class="p">(</span><span class="n">h_list</span><span class="p">,</span> <span class="s1">&#39;norm&#39;</span><span class="p">))</span>  <span class="c1"># 通用行强</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">normaltest</span><span class="p">(</span><span class="n">h_list</span><span class="p">))</span>  <span class="c1"># 专用,直接</span>
-<span class="sd">&quot;&quot;&quot; output</span>
-<span class="sd">ShapiroResult(statistic=0.9893901944160461, pvalue=0.7836505174636841)</span>
-<span class="sd">KstestResult(statistic=1.0, pvalue=0.0)</span>
-<span class="sd">NormaltestResult(statistic=0.39772650692006134, pvalue=0.8196619716081547)</span>
-<span class="sd">&quot;&quot;&quot;</span>
-</code></pre></div>
-
-<p><strong>当然也可以自己画正太函数的曲线,更多方式看:</strong> (<a href="https://www.cnblogs.com/judes/p/12627177.html">python正态分布</a>)</p>
-<p><strong>正态分布</strong>的概率密度函数均值为$$\mu$$,方差为$$\sigma$$是高斯函数的一个实例：
-$$
-f(x, \mu, \sigma) = \frac{1}{\sigma\sqrt{2\pi}} exp(-\frac{(x-\mu)^2}{2 \sigma^2})
-$$</p>
-<p>其具体的python函数可表示为:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">normfun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-<span class="n">mu</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">sigma</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
-<span class="n">pdf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
-<span class="k">return</span> <span class="n">pdf</span>
-</code></pre></div>
-
-<p>以下边的模拟数据为例,100个小朋友的随机身高,是否满足正太分布的检验是如何实现的.注意,这里并不需要统计汇总各个身高的数量,x永远是身高最小到最大的序列,y则是x的高斯函数.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">h_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">+</span><span class="mi">115</span>
-<span class="n">h_list_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">h_list</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">h_list_1</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">])</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">height</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">height</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">normfun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
-
-<p>​     </p>
-<ul>
-<li>幂率分布</li>
-</ul>
-<!--待补全-->
-
-<ul>
-<li>线性回归</li>
-</ul>
-<!--待补全-->
-
-<ul>
-<li>拟合函数</li>
-</ul>
-<p>这里只说什么是拟合函数,至于如何使用机器学习模块进行拟合,暂时不做讨论.</p>
-<p>拟合函数就是根据根据将一组变量输入一个函数,得出结果与目标值相符(注意未必是相同),则我们说这个函数是目标数据的拟合函数.根据其参数数量的不同,其计算结果呈现过拟合和欠拟合状态.</p>
-<p>如下为一个小的例题:</p>
-<blockquote>
-<p>沙漠面积逐年增加量为0.2, 0,4, 0.76公顷,问如下ABCD函数哪个拟合度最高.</p>
-<p>A: $0.2 * x$   </p>
-<p>B:$\frac{x^2 + 2x} {10} $</p>
-<p>C: $\frac{2^x}{10}$</p>
-<p>D: $0.2 + \log_{16} x$</p>
-</blockquote>
-<p>用python画出来就是:</p>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.76</span><span class="p">]</span>
-<span class="n">y_a</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">x</span>
-<span class="n">y_b</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span>
-<span class="n">y_c</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span><span class="o">**</span><span class="n">x</span> <span class="o">/</span> <span class="mi">10</span>
-<span class="n">y_d</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.2</span> <span class="o">+</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">16</span><span class="p">)))</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span><span class="mi">0</span> <span class="k">else</span> <span class="kc">None</span>
-
-<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="p">[</span><span class="n">y_a</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="p">[</span><span class="n">y_b</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="p">[</span><span class="n">y_c</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;pink&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="p">[</span><span class="n">y_d</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-</code></pre></div>
-
-<p>​     </p>                </article>
-            </aside><!-- /#featured -->
-        <section id="extras" class="body">
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="https://www.qicai21.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate">rss feed</a></li>
-
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
 
 </body>
 </html>
