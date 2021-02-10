@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>A Pelican Blog - linux</title><link>https://www.qicai21.github.io/</link><description></description><lastBuildDate>Thu, 07 Jan 2021 10:00:00 +0000</lastBuildDate><item><title>linux系统文件简述</title><link>https://www.qicai21.github.io/about_linux_file_system.html</link><description>&lt;h1&gt;linux系统文件夹概览&lt;/h1&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;经常性的搞不清楚linux下文件树,简单总结.&lt;/p&gt;
+&lt;p&gt;参阅:
+&lt;a href="https://blog.csdn.net/weixin_44400573/article/details/93460757"&gt;Ubuntu用户权限设置&lt;/a&gt;
+&lt;a href="https://www.jianshu.com/p/fe8da5d08e16"&gt;史上最全Linux目录结构说明&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;不用碰也碰不起的&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;boot&lt;/code&gt;  drwxr-xr-x  系统&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;root&lt;/code&gt;  drwx------  root专有&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;run&lt;/code&gt;   drwxr-xr-x  系统自运行的服务&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dev&lt;/code&gt;   drwxr-xr-x  硬件配置,驱动文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;不用知道是什么,总之不用碰也碰不到的&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;opt&lt;/code&gt;   drwxr-xr-x  chrome, firefox这些大型文件通常在这里&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;proc&lt;/code&gt;  dr-xr-xr-x&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;srv&lt;/code&gt;   drwxr-xr-x&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sys&lt;/code&gt;   dr-xr-xr-x&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;var&lt;/code&gt;   drwxr-xr-x&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;没啥看的,你都知道&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;home&lt;/code&gt;  drwxr-xr-x  所有用户的集合,的确像个家.如同win下的users&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tmp&lt;/code&gt;   drwxrwxrwt  临时文件,会被自动清理, 比如浏览器缓存文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;两个引用过来的,相当于汇总&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;bin&lt;/code&gt; -&amp;gt; usr/bin  lrwxrwxrwx    可直接执行, e.g.: pwd, ls&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lib&lt;/code&gt; -&amp;gt; usr/lib  lrwxrwxrwx    不可直接执行依赖库 e.g.: python3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;重点看这里了&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;etc&lt;/code&gt;   drwxr-xr-x   系统全局的配置文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;usr&lt;/code&gt;   drwxr-xr-x   包含了命令库文件和在通常操作中不会修改的文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;usr下需要了解这些&lt;/h2&gt;
+&lt;p&gt;usr不是user的缩写,而是"User System Resources",即面向用户使用的系统资源.
+所以她包含了命令库文件和在通常操作中不会修改的文件,其地位类似Windows上面
+的”Program Files”.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/usr/local&lt;/code&gt;  安装本地程序的一般默认路径&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/usr/share&lt;/code&gt;  存放共享文件的目录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/usr/lib&lt;/code&gt;    就是python3, apt, dpkg这些了&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/usr/bin&lt;/code&gt;    就是pwd, ls这些了  &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/usr/sbin&lt;/code&gt;   给超级用户root留的专属命令&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;配置文件放在哪?&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;~/.config&lt;/code&gt;   执行程序的配置文件都放在这里.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.*rc&lt;/code&gt;      各种程序的配置文件: e.g.: &lt;code&gt;.bashrc&lt;/code&gt;, &lt;code&gt;.vimrc&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;自己写的&amp;amp;下载的程序安装到哪?&lt;/h2&gt;
+&lt;p&gt;比如neovim的插件最好各个用户能共享(虽然通常只有你一个用户,但理论上1即所有)
+所以其恰当的位置是:&lt;code&gt;~/.local/share&lt;/code&gt;, 事实上可以发现很多认识的app都装在这里.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Burgan</dc:creator><pubDate>Thu, 07 Jan 2021 10:00:00 +0000</pubDate><guid isPermaLink="false">tag:www.qicai21.github.io,2021-01-07:/about_linux_file_system.html</guid><category>ubuntu</category><category>linux</category><category>ubuntu</category></item><item><title>新装ubuntu小记录</title><link>https://www.qicai21.github.io/install_ubuntu_to_new_pc.html</link><description>&lt;h1&gt;新装ubuntu后的配置&lt;/h1&gt;
+&lt;h2&gt;qv2ray&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;install qv2ray from office_website, then can easy update and install other apps.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;位置不对，暂时先安装到了桌面上。&lt;/li&gt;
+&lt;li&gt;权限不对，权限设置的不好。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;using proxy to apt and npm and many others app&lt;/p&gt;
+&lt;h3&gt;refrence&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.cnblogs.com/hupeng1234/p/9783336.html"&gt;常用http/https以及socks5代理总结&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关于配置过程中使用socks5还是socks5h的问题
+In a proxy string, socks5h:// and socks4a:// mean that the hostname is
+resolved by the SOCKS server. socks5:// and socks4:// mean that the
+hostname is resolved locally.
+也就是说socks5适合本地能够解析目标主机域名(比如github.com)但是访问速度慢,
+来提高下载速度;socks5h用与本地不能解析目标主机域名(比如google),由代理服务器
+解析目标主机域名.
+但是具体配置中也发现apt就用socks服务器解析,snap就用本地解析,不明所以!好在,
+就2种方案,不加h不好用就加上.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;apt&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;bash
+  # 配置文件位置: /etc/apt/apt.conf.d/proxy.conf
+  Acquire{
+    HTTP::proxy "socks5h://127.0.0.1:1080/";
+    HTTPS::proxy "socks5h://127.0.0.1:1080/";
+  }&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;npm&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;bash
+  # 配置文件位置: ~/.npmrc
+  proxy=socks5h://127.0.0.1:1080
+  https-proxy=socks5h://127.0.0.1:1080
+  https-proxy=socks5h://127.0.0.1:1080&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;curl&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;bash
+  # 需要使用proxy时加入参数
+  curl -x socks5h://localhost:1080 the_target_url&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;wget&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;```bash
+  # for all wget tasks, always using proxy, config_file: ~/.wgetrc
+  use_proxy=yes
+  http_proxy=socks5://127.0.0.1:1080
+  https_proxy=socks5://127.0.0.1:1080&lt;/p&gt;
+&lt;p&gt;# or via -e options placed after the URL:
+  wget ... -e use_proxy=yes -e http_proxy=socks5://127.0.0.1:8080 the_target_url
+  ```&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;git:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;bash
+  # 配置文件位置: ~/.gitconfig
+  [http]
+          proxy = socks5h://127.0.0.1:1080
+  [https]
+          proxy = socks5h://127.0.0.1:1080&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;snap&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;bash
+  ~$ sudo snap set system proxy.http=socks5://127.0.0.1:1080
+  ~$ sudo snap set system proxy.https=socks5://127.0.0.1:1080
+  ~$ sudo snap install gimp&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;OBS-STUDIO&lt;/h2&gt;
+&lt;p&gt;从官网直接安装，支持apt install&lt;/p&gt;
+&lt;p&gt;同时还要安装ffmpeg,以及对H264-ACC的支持。&lt;/p&gt;
+&lt;h2&gt;vim&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;需要考虑的问题有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;vim type 的选择: &lt;code&gt;vim-8&lt;/code&gt; or &lt;code&gt;neovim&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;vim plugins 管理器: vim-plug&lt;/li&gt;
+&lt;li&gt;vim自动补全和格式检验等: 之前是用YouCompleteMe, 本次使用全新的Coc.nvim&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;vim8 is ok, 我在小黑上已经用了超过3年，但是这是最和是的机会换一下环境，所以这我选neovim
+这次配置最终选择饮用sainnhe@github的配置方案,具体链接在reference里.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;reference&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=qwZq-rl0NOU"&gt;vim 老矣，尚能用否？何不试试 neovim&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="ttps://blog.csdn.net/insist100/article/details/108814759"&gt;neovim使用“vim-plug”插件管理器&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.cnblogs.com/cniwoq/p/13272746.html"&gt;Neovim+Coc.nvim配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.sainnhe.dev/post/status-line-config/"&gt;Sexy &amp;amp; Powerful Configuration for Lightline and Tmux&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# terminal command to start vim and waiting for cennect from python&lt;/span&gt;
+&lt;span class="c1"&gt;# $NVIM_LISTEN_ADDRESS=~/nvim vim&lt;/span&gt;
+&lt;span class="c1"&gt;# press e after neovim startup.&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;newvim&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;nvm&lt;/span&gt;  &lt;span class="c1"&gt;# pip install newvim for first&lt;/span&gt;
+
+&lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;nvm&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;attach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;socket&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;~/nvim&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;current&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;hello neovim!&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# neovim中应该能输出:hello neovim。&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;configration&lt;/h3&gt;
+&lt;p&gt;整个配置过程中,不知道是我权限设置的问题还是neovim的配置问题,无法通过&lt;code&gt;ln -s ~/.vimrc ~/my_nvim_config/&lt;/code&gt;
+来正确配置,不过也无所谓,我直接在&lt;code&gt;~/.config/nvim/init.vim&lt;/code&gt; 中配置就ok了, 弃用`.vimrc‵.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;neovim's config file's path: &lt;code&gt;~/.config/nvim/init.vim&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;vim plug&lt;/code&gt; path: &lt;code&gt;~/.local/share/nvim/plugins/&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Plugin的选择&lt;/h3&gt;
+&lt;p&gt;这次没有添加NERDTree, 用系统自带的netrw, 命令方式是: &lt;code&gt;Explore&lt;/code&gt; &amp;amp; &lt;code&gt;Sexplore&lt;/code&gt; &amp;amp; &lt;code&gt;Vexplore&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;git&lt;/h2&gt;
+&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;$sudo&lt;/span&gt; apt install git-all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;jupyter notebook&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h2&gt;django&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h2&gt;mongodb&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h2&gt;typora&lt;/h2&gt;
+&lt;hr&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Burgan</dc:creator><pubDate>Tue, 05 Jan 2021 10:00:00 +0000</pubDate><guid isPermaLink="false">tag:www.qicai21.github.io,2021-01-05:/install_ubuntu_to_new_pc.html</guid><category>ubuntu</category><category>linux</category><category>ubuntu</category></item></channel></rss>

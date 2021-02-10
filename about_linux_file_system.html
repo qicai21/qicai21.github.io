@@ -3,9 +3,10 @@
 <head>
         <meta charset="utf-8" />
         <meta name="generator" content="Pelican" />
-        <title>A Pelican Blog</title>
+        <title>linux系统文件简述</title>
         <link rel="stylesheet" href="./theme/css/main.css" />
         <link href="https://www.qicai21.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="A Pelican Blog RSS Feed" />
+        <meta name="description" content="linux系统文件的构成,哪些能动,哪些不能动,软件安在哪里." />
 </head>
 
 <body id="index" class="home">
@@ -14,13 +15,18 @@
                 <nav><ul>
                     <li><a href="./category/python.html">python</a></li>
                     <li><a href="./category/todo.html">todo</a></li>
-                    <li><a href="./category/ubuntu.html">ubuntu</a></li>
+                    <li class="active"><a href="./category/ubuntu.html">ubuntu</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="./about_linux_file_system.html" rel="bookmark"
+           title="Permalink to linux系统文件简述">linux系统文件简述</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="./about_linux_file_system.html">linux系统文件简述</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2021-01-07T10:00:00+00:00">
                 Published: Thu 07 January 2021
@@ -31,7 +37,7 @@
         </address>
 <p>In <a href="./category/ubuntu.html">ubuntu</a>.</p>
 <p>tags: <a href="./tag/linux.html">linux</a> <a href="./tag/ubuntu.html">ubuntu</a> </p>
-</footer><!-- /.post-info --><h1>linux系统文件夹概览</h1>
+</footer><!-- /.post-info -->      <h1>linux系统文件夹概览</h1>
 <hr>
 <blockquote>
 <p>经常性的搞不清楚linux下文件树,简单总结.</p>
@@ -87,80 +93,11 @@
 </ul>
 <h2>自己写的&amp;下载的程序安装到哪?</h2>
 <p>比如neovim的插件最好各个用户能共享(虽然通常只有你一个用户,但理论上1即所有)
-所以其恰当的位置是:<code>~/.local/share</code>, 事实上可以发现很多认识的app都装在这里.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+所以其恰当的位置是:<code>~/.local/share</code>, 事实上可以发现很多认识的app都装在这里.</p>
+    </div><!-- /.entry-content -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./install_ubuntu_to_new_pc.html" rel="bookmark"
-                           title="Permalink to 新装ubuntu小记录">新装ubuntu小记录</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2021-01-05T10:00:00+00:00">
-                Published: Tue 05 January 2021
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author/burgan.html">Burgan</a>
-        </address>
-<p>In <a href="./category/ubuntu.html">ubuntu</a>.</p>
-<p>tags: <a href="./tag/linux.html">linux</a> <a href="./tag/ubuntu.html">ubuntu</a> </p>
-</footer><!-- /.post-info -->                <p>2021年重新安装ubuntu后安装apps的记录</p>
-                <a class="readmore" href="./install_ubuntu_to_new_pc.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./my_todo_210204.html" rel="bookmark"
-                           title="Permalink to TODO-2021-02-04 [施工中]">TODO-2021-02-04 [施工中]</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2021-01-04T22:20:00+00:00">
-                Published: Mon 04 January 2021
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author/burgam.html">Burgam</a>
-        </address>
-<p>In <a href="./category/todo.html">todo</a>.</p>
-<p>tags: <a href="./tag/to-do.html">to-do</a> </p>
-</footer><!-- /.post-info -->                <p>my todo, 施工中</p>
-                <a class="readmore" href="./my_todo_210204.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./cft_project_development.html" rel="bookmark"
-                           title="Permalink to 粮食价格信息抓取项目记录">粮食价格信息抓取项目记录</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2021-01-03T10:00:00+00:00">
-                Published: Sun 03 January 2021
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author/burgan.html">Burgan</a>
-        </address>
-<p>In <a href="./category/python.html">python</a>.</p>
-<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/data_analysis.html">data_analysis</a> </p>
-</footer><!-- /.post-info -->                <p>抓取ChinaFeedTrading的价格信息,并自动生成格式化报文项目.涉及request抓取, regex, mongodb, matplotlib等.</p>
-                <a class="readmore" href="./cft_project_development.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="social">
                         <h2>social</h2>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>A Pelican Blog - to-do</title>
+        <link rel="stylesheet" href="../theme/css/main.css" />
+        <link href="https://www.qicai21.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="A Pelican Blog RSS Feed" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="../">A Pelican Blog</a></h1>
+                <nav><ul>
+                    <li><a href="../category/python.html">python</a></li>
+                    <li><a href="../category/todo.html">todo</a></li>
+                    <li><a href="../category/ubuntu.html">ubuntu</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="../my_todo_210204.html">TODO-2021-02-04 [施工中]</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2021-01-04T22:20:00+00:00">
+                Published: Mon 04 January 2021
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../author/burgam.html">Burgam</a>
+        </address>
+<p>In <a href="../category/todo.html">todo</a>.</p>
+<p>tags: <a href="../tag/to-do.html">to-do</a> </p>
+</footer><!-- /.post-info --><h1>TODO LIST 2021-02-04</h1>
+<h2>Installation</h2>
+<ul>
+<li>[x] typora</li>
+<li>[x] anaconda &amp; jupyter notebook</li>
+<li>[x] mongodb</li>
+<li>[x] davinci resolver</li>
+<li>[ ] jango</li>
+<li>[x] javascript env</li>
+<li>[ ] pelican for myblog on github</li>
+<li>[ ] check Freeplane on this dev</li>
+</ul>
+<h3>note</h3>
+<p><strong>mongodb</strong>: 数据库的数据文件通常存在/var/lib/dbname/下</p>
+<p><strong>davinci</strong>: 在linux下davinci的格式限制还是比win下多的,如下引用一篇技术文章</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 缺少依赖项,添加</span>
+sudo apt install  beignet-opencl-icd clinfo
+
+sudo apt install ocl-icd-opencl-dev fakeroot xorriso
+
+sudo apt install libssl-dev
+</code></pre></div>
+
+<blockquote>
+<p>Linux版本支持的格式有限 比如ACC完全不支持, H264支持程度很低，基本废废。
+原有使用x264编码的视频  可以使用ffmpeg工具更改至mpeg4+pcm_s32le的mov视频格式。</p>
+</blockquote>
+<p><strong>javascript on jupyter</strong>:</p>
+<p>javascript运行环境,就是安装nodejs,并适配到jupyter上.
+因npm有global和非global安装package之分,而ijavascript对zmq有依赖,所以node-gyp, zeromq, ijavascript
+都要安装在一个目录下,即或是都为gloable或都不是.下边以<code>-g</code>模式为例:</p>
+<div class="highlight"><pre><span></span><code>sudo apt reinstall nodejs
+sudo apt install build-essential
+npm --version
+npm list
+npm -g list
+npm install -g node-gyp  <span class="c1"># 注意安装次序</span>
+npm install -g zeromq@6.0.0-beta.5
+npm install -g ijavascript
+
+ijsinstall  <span class="c1"># 安装完ijavascript还要再与jupyter关联一下</span>
+</code></pre></div>
+
+<h2>Test using surface as a second display-screen</h2>
+<p>目前可行方案有:</p>
+<p><a href="https://deskreen.com/">Deskreen</a>
+   <a href="https://github.com/albfan/miraclecast">miraclecast</a>
+   <a href="https://superuser.com/questions/1375448/using-windows-laptop-as-2nd-screen-for-ubuntu-desktop-possible">Virtual Monitor Over VNC</a></p>
+<p><strong>Deskreen</strong> 这个是利用浏览器广播的,不能完全代替扩展屏,好在配置简单,使用方便.
+但是好像对wifi网络有要求,家里的双频网2.4g就连不通,5g就能联通.</p>
+<p><strong>miraclecast</strong> 非常粗鄙的理解,这个相当于利用miracle服务,将ubuntu上
+的NetworkManager.service &amp; wpa_supplicant.service给嫁接了一下,做一个合并转发,
+然后就能实现在局域网内的投屏.</p>
+<p><strong>VNC Server</strong> 与miracle类似,具体还没仔细看.</p>
+<p><strong>miraclecast不能正常工作</strong> 可能仅限于我的电脑.</p>
+<hr>
+<blockquote>
+<p>关于安装miraclecast,反复测试安装后依旧不能正常工作,可能跟网卡的驱动有关,
+也可能有其他原因,大致就是说miracle服务向wpa_supplicant发送命令时有长度限制,
+15个字,但是部分系统或环境下因为wirless的名字的原因,长度超出了,就不能正常工作.
+具体参阅:
+<a href="https://github.com/albfan/miraclecast/issues/285">WARNING: supplicant: wpa_supplicant or driver does not support P2P</a></p>
+<p>安装过程:
+要求:</p>
+<p>systemd版本&gt;221,主要是关于kdbus和udev有要求,具体这些是什么我也不知道.</p>
+<p>安装过程</p>
+<ol>
+<li>git clone to /usr/local/share/</li>
+<li>
+<p>确保已经满足了官方文档中的Requirements,特别是第4,5,6容易被忽视,缺什么就装什么</p>
+<p>Install GStreamer</p>
+</li>
+<li>
+<p>安装必要的模块,之后编译autogen.sh</p>
+</li>
+</ol>
+<p>```bash
+  cd /usr/local/share/miraclecast</p>
+<p>sudo apt-get update
+  sudo apt-get install ubuntu-dev-tools autoconf libtool libudev-dev
+  sudo apt-get install libsystemd-dev glib-2.0 libperl-dev libgtk2.0-dev libreadline-dev</p>
+<p>libtoolize; aclocal; autoconf</p>
+<p>sudo ./autogen.sh</p>
+<p>sudo ./configure
+  sudo make
+  sudo make install</p>
+<p>```</p>
+</blockquote>
+<hr>
+<h2>Running my corn porject on this dev</h2>
+<p>ditto</p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://www.qicai21.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate">rss feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
