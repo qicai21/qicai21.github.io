@@ -1,180 +1,293 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-        <meta charset="utf-8" />
-        <meta name="generator" content="Pelican" />
-        <title>A Pelican Blog</title>
-        <link rel="stylesheet" href="./theme/css/main.css" />
-        <link href="https://www.qicai21.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="A Pelican Blog RSS Feed" />
+    <title>Burgan的干货站</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href=".//favicon.ico" rel="icon">
+
+<link rel="canonical" href=".">
+        <meta name="author" content="Burgan" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="Burgan的干货站" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Burgan的干货站"/>
+        <meta property="og:url" content="."/>
+        <meta property="og:description" content="Burgan的干货站"/>
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/friendly.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+
+
+
 </head>
+<body>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="./">A Pelican Blog</a></h1>
-                <nav><ul>
-                    <li><a href="./category/projects.html">Projects</a></li>
-                    <li><a href="./category/tips.html">Tips</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+Burgan的干货站            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="./category/projects.html">Projects</a>
+                        </li>
+                        <li >
+                            <a href="./category/tips.html">Tips</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="./introduce_linux_file_system.html">初识linux系统文件</a></h1>
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <article>
+                <h2><a href="./shi-yong-pelicanda-jian-github-blogs.html">使用Pelican搭建github-blogs</a></h2>
+                    <div class="well well-sm">
 <footer class="post-info">
-        <abbr class="published" title="2021-01-07T10:00:00+00:00">
-                Published: Thu 07 January 2021
-        </abbr>
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2021-02-11T00:00:00+08:00"> Thu 11 February 2021</time>
+    </span>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author/burgan.html">Burgan</a>
-        </address>
-<p>In <a href="./category/tips.html">Tips</a>.</p>
-<p>tags: <a href="./tag/linux.html">linux</a> <a href="./tag/ubuntu.html">ubuntu</a> </p>
-</footer><!-- /.post-info --><blockquote>
-<p>经常性的搞不清楚linux下文件树,简单总结.</p>
-<p>参阅:
-<a href="https://blog.csdn.net/weixin_44400573/article/details/93460757">Ubuntu用户权限设置</a>
-<a href="https://www.jianshu.com/p/fe8da5d08e16">史上最全Linux目录结构说明</a></p>
-</blockquote>
-<h2>不用碰,也碰不起的</h2>
-<ul>
-<li><code>boot</code>  drwxr-xr-x  系统</li>
-<li><code>root</code>  drwx------  root专有</li>
-<li><code>run</code>   drwxr-xr-x  系统自运行的服务</li>
-<li><code>dev</code>   drwxr-xr-x  硬件配置,驱动文件</li>
-</ul>
-<h2>不用知道是什么,总之不用碰也碰不到的</h2>
-<ul>
-<li><code>opt</code>   drwxr-xr-x  chrome, firefox这些大型文件通常在这里</li>
-<li><code>proc</code>  dr-xr-xr-x</li>
-<li><code>srv</code>   drwxr-xr-x</li>
-<li><code>sys</code>   dr-xr-xr-x</li>
-<li><code>var</code>   drwxr-xr-x</li>
-</ul>
-<h2>没啥看的,你都知道</h2>
-<ul>
-<li><code>home</code>  drwxr-xr-x  所有用户的集合,的确像个家.如同win下的users</li>
-<li><code>tmp</code>   drwxrwxrwt  临时文件,会被自动清理, 比如浏览器缓存文件</li>
-</ul>
-<h2>两个引用过来的,相当于汇总</h2>
-<ul>
-<li><code>bin</code> -&gt; usr/bin  lrwxrwxrwx    可直接执行, e.g.: pwd, ls</li>
-<li><code>lib</code> -&gt; usr/lib  lrwxrwxrwx    不可直接执行依赖库 e.g.: python3</li>
-</ul>
-<h2>重点看这里了</h2>
-<ul>
-<li><code>etc</code>   drwxr-xr-x   系统全局的配置文件</li>
-<li><code>usr</code>   drwxr-xr-x   包含了命令库文件和在通常操作中不会修改的文件</li>
-</ul>
-<h2>usr下需要了解这些</h2>
-<p>usr不是user的缩写,而是"User System Resources",即面向用户使用的系统资源.
-所以她包含了命令库文件和在通常操作中不会修改的文件,其地位类似Windows上面
-的”Program Files”.</p>
-<ul>
-<li><code>/usr/local</code>  安装本地程序的一般默认路径</li>
-<li><code>/usr/share</code>  存放共享文件的目录</li>
-<li><code>/usr/lib</code>    就是python3, apt, dpkg这些了</li>
-<li><code>/usr/bin</code>    就是pwd, ls这些了  </li>
-<li><code>/usr/sbin</code>   给超级用户root留的专属命令</li>
-</ul>
-<h2>配置文件放在哪?</h2>
-<ul>
-<li><code>~/.config</code>   执行程序的配置文件都放在这里.</li>
-<li><code>~/.*rc</code>      各种程序的配置文件: e.g.: <code>.bashrc</code>, <code>.vimrc</code></li>
-</ul>
-<h2>自己写的&amp;下载的程序安装到哪?</h2>
-<p>比如neovim的插件最好各个用户能共享(虽然通常只有你一个用户,但理论上1即所有)
-所以其恰当的位置是:<code>~/.local/share</code>, 事实上可以发现很多认识的app都装在这里.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./cft_project_development.html" rel="bookmark"
-                           title="Permalink to 粮食价格信息抓取项目记录">粮食价格信息抓取项目记录</a></h1>
-                </header>
 
-                <div class="entry-content">
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/pelican.html">pelican</a>
+        /
+	<a href="./tag/web.html">web</a>
+        /
+	<a href="./tag/python.html">python</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>使用pelican搭建静态的github博客,简化将markdown和jupyter notebook文件的渲染为博客页面,基于ubuntu系统.抖音有视频.</p>
+                    <a class="btn btn-default btn-xs" href="./shi-yong-pelicanda-jian-github-blogs.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./introduce_linux_file_system.html">初识linux系统文件</a></h2>
+                    <div class="well well-sm">
 <footer class="post-info">
-        <abbr class="published" title="2021-01-03T10:00:00+00:00">
-                Published: Sun 03 January 2021
-        </abbr>
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2021-01-07T10:00:00+08:00"> Thu 07 January 2021</time>
+    </span>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author/burgan.html">Burgan</a>
-        </address>
-<p>In <a href="./category/projects.html">Projects</a>.</p>
-<p>tags: <a href="./tag/python.html">python</a> <a href="./tag/data_analysis.html">data_analysis</a> </p>
-</footer><!-- /.post-info -->                <p>抓取ChinaFeedTrading的价格信息,并自动生成格式化报文项目.涉及request抓取, regex, mongodb, matplotlib等.</p>
-                <a class="readmore" href="./cft_project_development.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./pip_upgrade_all_pkg.html" rel="bookmark"
-                           title="Permalink to 一条命令实现pip更新全部包">一条命令实现pip更新全部包</a></h1>
-                </header>
 
-                <div class="entry-content">
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/linux.html">linux</a>
+        /
+	<a href="./tag/ubuntu.html">ubuntu</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>linux系统文件的构成,哪些能动,哪些不能动,软件安在哪里.</p>
+                    <a class="btn btn-default btn-xs" href="./introduce_linux_file_system.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./cft_project_development.html">粮食价格信息抓取项目记录</a></h2>
+                    <div class="well well-sm">
 <footer class="post-info">
-        <abbr class="published" title="2018-05-29T00:00:00+00:00">
-                Published: Tue 29 May 2018
-        </abbr>
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2021-01-03T10:00:00+08:00"> Sun 03 January 2021</time>
+    </span>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author/burgan.html">Burgan</a>
-        </address>
-<p>In <a href="./category/tips.html">Tips</a>.</p>
-<p>tags: <a href="./tag/ubuntu.html">ubuntu</a> <a href="./tag/python3.html">python3</a> </p>
-</footer><!-- /.post-info -->                <p>通过pip命令更新全部pip package,但是谨慎使用. <code>pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip install -U</code></p>
-                <a class="readmore" href="./pip_upgrade_all_pkg.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="./trakpoint_drive_on_ubuntu.html" rel="bookmark"
-                           title="Permalink to Ubuntu: TrackPoint setting">Ubuntu: TrackPoint setting</a></h1>
-                </header>
 
-                <div class="entry-content">
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/python.html">python</a>
+        /
+	<a href="./tag/data_analysis.html">data_analysis</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>抓取ChinaFeedTrading的价格信息,并自动生成格式化报文项目.涉及request抓取, regex, mongodb, matplotlib等.</p>
+                    <a class="btn btn-default btn-xs" href="./cft_project_development.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./pip_upgrade_all_pkg.html">一条命令实现pip更新全部包</a></h2>
+                    <div class="well well-sm">
 <footer class="post-info">
-        <abbr class="published" title="2017-04-07T00:00:00+00:00">
-                Published: Fri 07 April 2017
-        </abbr>
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2018-05-29T00:00:00+08:00"> Tue 29 May 2018</time>
+    </span>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="./author/burgan.html">Burgan</a>
-        </address>
-<p>In <a href="./category/tips.html">Tips</a>.</p>
-<p>tags: <a href="./tag/ubuntu.html">ubuntu</a> <a href="./tag/thinkpad_trackpoint.html">thinkpad_trackpoint</a> </p>
-</footer><!-- /.post-info -->                <p>thinkpad小红点在ubuntu下的驱动</p>
-                <a class="readmore" href="./trakpoint_drive_on_ubuntu.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="https://www.qicai21.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate">rss feed</a></li>
 
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
-                </address><!-- /#about -->
 
-                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/ubuntu.html">ubuntu</a>
+        /
+	<a href="./tag/python3.html">python3</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>通过pip命令更新全部pip package,但是谨慎使用. <code>pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip install -U</code></p>
+                    <a class="btn btn-default btn-xs" href="./pip_upgrade_all_pkg.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="./trakpoint_drive_on_ubuntu.html">Ubuntu: TrackPoint setting</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-04-07T00:00:00+08:00"> Fri 07 April 2017</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/ubuntu.html">ubuntu</a>
+        /
+	<a href="./tag/thinkpad_trackpoint.html">thinkpad_trackpoint</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>thinkpad小红点在ubuntu下的驱动</p>
+                    <a class="btn btn-default btn-xs" href="./trakpoint_drive_on_ubuntu.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<div id="aboutme">
+    <p>
+      <strong>About Burgan</strong><br/>
+        PYTHON, UBUNTU, AND More.
+    </p>
+</div><!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="mailto:qicai21@gmail.com"><i class="fa fa-envelope-o fa-lg"></i> envelope-o</a></li>
+    <li class="list-group-item"><a href="https://www.linkedin.com/in/东北-郭-b05753166/"><i class="fa fa-linkedin-square fa-lg"></i> linkedin</a></li>
+    <li class="list-group-item"><a href="https://github.com/qicai21"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Tag Cloud -->
+<li class="list-group-item">
+  <a href="./"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <ul class="list-group " id="tags">
+    <li class="list-group-item tag-1">
+      <a href="./tag/ubuntu.html">ubuntu</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="./tag/python.html">python</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/python3.html">python3</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/data_analysis.html">data_analysis</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/pelican.html">pelican</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/thinkpad_trackpoint.html">thinkpad_trackpoint</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/web.html">web</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/linux.html">linux</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Tag Cloud -->
+
+<!-- Sidebar/Images -->
+<li class="list-group-item">
+  <ul class="list-group" id="links">
+    <img width="100%" class="img-thumbnail" src="/assets/cn_tiktok_qr.png"/>
+  </ul>
+</li>
+<!-- End Sidebar/Images -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2021 Burgan
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh_cn"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a>
+    &quot;<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Burgan的干货站</span>&quot; by <a xmlns:cc="http://creativecommons.org/ns#" href="." property="cc:attributionName" rel="cc:attributionURL">Burgan</a> is
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh_cn">Creative Commons Attribution-NonCommercial 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+
+
 
 </body>
 </html>
