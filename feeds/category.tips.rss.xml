@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>A Pelican Blog - ubuntu</title><link>https://www.qicai21.github.io/</link><description></description><lastBuildDate>Thu, 07 Jan 2021 10:00:00 +0000</lastBuildDate><item><title>初识linux系统文件</title><link>https://www.qicai21.github.io/introduce_linux_file_system.html</link><description>&lt;blockquote&gt;
+<rss version="2.0"><channel><title>A Pelican Blog - Tips</title><link>https://www.qicai21.github.io/</link><description></description><lastBuildDate>Thu, 07 Jan 2021 10:00:00 +0000</lastBuildDate><item><title>初识linux系统文件</title><link>https://www.qicai21.github.io/introduce_linux_file_system.html</link><description>&lt;blockquote&gt;
 &lt;p&gt;经常性的搞不清楚linux下文件树,简单总结.&lt;/p&gt;
 &lt;p&gt;参阅:
 &lt;a href="https://blog.csdn.net/weixin_44400573/article/details/93460757"&gt;Ubuntu用户权限设置&lt;/a&gt;

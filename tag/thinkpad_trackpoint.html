@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Pelican" />
+        <title>A Pelican Blog - thinkpad_trackpoint</title>
+        <link rel="stylesheet" href="../theme/css/main.css" />
+        <link href="https://www.qicai21.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="A Pelican Blog RSS Feed" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="../">A Pelican Blog</a></h1>
+                <nav><ul>
+                    <li><a href="../category/python.html">python</a></li>
+                    <li><a href="../category/tips.html">Tips</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="../trakpoint_drive_on_ubuntu.html">Ubuntu: TrackPoint setting</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-04-07T00:00:00+00:00">
+                Published: Fri 07 April 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../author/burgan.html">Burgan</a>
+        </address>
+<p>In <a href="../category/tips.html">Tips</a>.</p>
+<p>tags: <a href="../tag/ubuntu.html">ubuntu</a> <a href="../tag/thinkpad_trackpoint.html">thinkpad_trackpoint</a> </p>
+</footer><!-- /.post-info --><h2>using xinput command</h2>
+<p><strong>what's xinput?</strong></p>
+<blockquote>
+<p>xinput  is a utility to list available input devices,
+query information about a device and change input device settings.</p>
+<p><a href="http://manpages.ubuntu.com/manpages/zesty/man1/xinput.1.html">more info about xinput</a></p>
+</blockquote>
+<h2>Change configure of TrackPoint</h2>
+<p>Get Device ID of TrackPoint</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$xinput</span> list <span class="p">|</span> grep TrackPoint
+<span class="c1"># get output as follows</span>
+TPPS/2 IBM TrackPoint    <span class="nv">id</span><span class="o">=</span><span class="m">14</span>    <span class="o">[</span>slave  pointer  <span class="o">(</span><span class="m">2</span><span class="o">)]</span>
+</code></pre></div>
+
+<p>Then get setting value by this ID：</p>
+<div class="highlight"><pre><span></span><code>$ xinput list-props <span class="m">14</span>
+
+Device <span class="s1">&#39;TPPS/2 IBM TrackPoint&#39;</span>:
+Device Enabled <span class="o">(</span><span class="m">137</span><span class="o">)</span>:   <span class="m">1</span>
+Coordinate Transformation Matrix <span class="o">(</span><span class="m">139</span><span class="o">)</span>: <span class="m">1</span>.000000, <span class="m">0</span>.000000, <span class="m">0</span>.000000, <span class="m">0</span>.000000, <span class="m">1</span>.000000, <span class="m">0</span>.000000, <span class="m">0</span>.000000, <span class="m">0</span>.000000, <span class="m">1</span>.000000
+Device Accel Profile <span class="o">(</span><span class="m">263</span><span class="o">)</span>: <span class="m">0</span>
+Device Accel Constant Deceleration <span class="o">(</span><span class="m">264</span><span class="o">)</span>:   <span class="m">1</span>.000000
+Device Accel Adaptive Deceleration <span class="o">(</span><span class="m">265</span><span class="o">)</span>:   <span class="m">1</span>.000000
+...
+<span class="c1"># the value in row 5 and 6, it output as：</span>
+Device Accel Constant Deceleration <span class="o">(</span><span class="m">264</span><span class="o">)</span>: <span class="m">1</span>.000000 
+Device Accel Adaptive Deceleration <span class="o">(</span><span class="m">265</span><span class="o">)</span>: <span class="m">1</span>.000000
+</code></pre></div>
+
+<p>其中括号里的整数就是该项设置的ID，后面的小数是该项设置的参数值。
+ID为264（我的机器）代表的是小红点的固定阻力值(Constant Deceleration)，
+取值范围是 [0,1]；ID为265代表的是随力度减弱时阻力增加的速度，
+即小红点停下来的速度，取值范围是 [1,?]。一般来说设置264就够了.</p>
+<p><strong>reset the value:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nv">$xinput</span> set-prop <span class="m">14</span> <span class="m">264</span> <span class="m">0</span>.40
+</code></pre></div>
+
+<p>把下边这条命令加入到 ~/.xprofile</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1"># obtain TrackPoint ID from xinput list</span>
+<span class="nv">TP_ID</span><span class="o">=</span><span class="k">$(</span>xinput list <span class="p">|</span> grep TrackPoint <span class="p">|</span> cut -f <span class="m">2</span> <span class="p">|</span> grep -Eo <span class="s1">&#39;[0-9]{1,}&#39;</span><span class="k">)</span>
+
+<span class="k">if</span> <span class="o">[</span> -n <span class="s2">&quot;</span><span class="nv">$TP_ID</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="c1"># obtain properties from xinput list-props &quot;$TP_ID&quot;</span>
+    <span class="nv">AS_ID</span><span class="o">=</span><span class="k">$(</span>xinput list-props <span class="s2">&quot;</span><span class="nv">$TP_ID</span><span class="s2">&quot;</span> <span class="p">|</span> grep <span class="s1">&#39;Accel Constant Deceleration (&#39;</span> <span class="p">|</span> cut -f <span class="m">2</span> <span class="p">|</span> grep -Eo <span class="s1">&#39;[0-9]{1,}&#39;</span><span class="k">)</span>
+    <span class="c1"># set the speed you want</span>
+    <span class="k">$(</span>xinput set-prop <span class="s2">&quot;</span><span class="nv">$TP_ID</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$AS_ID</span><span class="s2">&quot;</span> <span class="m">0</span>.50 <span class="k">)</span>
+<span class="k">fi</span>
+</code></pre></div>
+
+<p>PS: 妈蛋,居然附赠了我一堆shell 脚本的学习工作, 最后一行命令她给写成了:</p>
+<div class="highlight"><pre><span></span><code><span class="k">$(</span>xinput <span class="nb">set</span> -prop <span class="s2">&quot;</span><span class="nv">$TP_ID</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$AS_ID</span><span class="s2">&quot;</span> <span class="m">0</span>.25<span class="k">)</span>
+</code></pre></div>
+
+<p>it will be not implemented by bash, 还得自己改.</p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://www.qicai21.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate">rss feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

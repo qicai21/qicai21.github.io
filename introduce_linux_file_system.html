@@ -3,34 +3,40 @@
 <head>
         <meta charset="utf-8" />
         <meta name="generator" content="Pelican" />
-        <title>A Pelican Blog - linux</title>
-        <link rel="stylesheet" href="../theme/css/main.css" />
+        <title>初识linux系统文件</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
         <link href="https://www.qicai21.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="A Pelican Blog RSS Feed" />
+        <meta name="description" content="linux系统文件的构成,哪些能动,哪些不能动,软件安在哪里." />
 </head>
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="../">A Pelican Blog</a></h1>
+                <h1><a href="./">A Pelican Blog</a></h1>
                 <nav><ul>
-                    <li><a href="../category/python.html">python</a></li>
-                    <li><a href="../category/tips.html">Tips</a></li>
+                    <li><a href="./category/python.html">python</a></li>
+                    <li class="active"><a href="./category/tips.html">Tips</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="./introduce_linux_file_system.html" rel="bookmark"
+           title="Permalink to 初识linux系统文件">初识linux系统文件</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="../introduce_linux_file_system.html">初识linux系统文件</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2021-01-07T10:00:00+00:00">
                 Published: Thu 07 January 2021
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="../author/burgan.html">Burgan</a>
+                By                         <a class="url fn" href="./author/burgan.html">Burgan</a>
         </address>
-<p>In <a href="../category/tips.html">Tips</a>.</p>
-<p>tags: <a href="../tag/linux.html">linux</a> <a href="../tag/ubuntu.html">ubuntu</a> </p>
-</footer><!-- /.post-info --><blockquote>
+<p>In <a href="./category/tips.html">Tips</a>.</p>
+<p>tags: <a href="./tag/linux.html">linux</a> <a href="./tag/ubuntu.html">ubuntu</a> </p>
+</footer><!-- /.post-info -->      <blockquote>
 <p>经常性的搞不清楚linux下文件树,简单总结.</p>
 <p>参阅:
 <a href="https://blog.csdn.net/weixin_44400573/article/details/93460757">Ubuntu用户权限设置</a>
@@ -84,8 +90,11 @@
 </ul>
 <h2>自己写的&amp;下载的程序安装到哪?</h2>
 <p>比如neovim的插件最好各个用户能共享(虽然通常只有你一个用户,但理论上1即所有)
-所以其恰当的位置是:<code>~/.local/share</code>, 事实上可以发现很多认识的app都装在这里.</p>                </article>
-            </aside><!-- /#featured -->
+所以其恰当的位置是:<code>~/.local/share</code>, 事实上可以发现很多认识的app都装在这里.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="social">
                         <h2>social</h2>

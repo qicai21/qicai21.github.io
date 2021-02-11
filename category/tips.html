@@ -3,7 +3,7 @@
 <head>
         <meta charset="utf-8" />
         <meta name="generator" content="Pelican" />
-        <title>A Pelican Blog - linux</title>
+        <title>A Pelican Blog - Tips</title>
         <link rel="stylesheet" href="../theme/css/main.css" />
         <link href="https://www.qicai21.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="A Pelican Blog RSS Feed" />
 </head>
@@ -13,7 +13,7 @@
                 <h1><a href="../">A Pelican Blog</a></h1>
                 <nav><ul>
                     <li><a href="../category/python.html">python</a></li>
-                    <li><a href="../category/tips.html">Tips</a></li>
+                    <li class="active"><a href="../category/tips.html">Tips</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
@@ -86,6 +86,56 @@
 <p>比如neovim的插件最好各个用户能共享(虽然通常只有你一个用户,但理论上1即所有)
 所以其恰当的位置是:<code>~/.local/share</code>, 事实上可以发现很多认识的app都装在这里.</p>                </article>
             </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="../pip_upgrade_all_pkg.html" rel="bookmark"
+                           title="Permalink to 一条命令实现pip更新全部包">一条命令实现pip更新全部包</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-05-29T00:00:00+00:00">
+                Published: Tue 29 May 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../author/burgan.html">Burgan</a>
+        </address>
+<p>In <a href="../category/tips.html">Tips</a>.</p>
+<p>tags: <a href="../tag/ubuntu.html">ubuntu</a> <a href="../tag/python3.html">python3</a> </p>
+</footer><!-- /.post-info -->                <p>通过pip命令更新全部pip package,但是谨慎使用. <code>pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip install -U</code></p>
+                <a class="readmore" href="../pip_upgrade_all_pkg.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="../trakpoint_drive_on_ubuntu.html" rel="bookmark"
+                           title="Permalink to Ubuntu: TrackPoint setting">Ubuntu: TrackPoint setting</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-04-07T00:00:00+00:00">
+                Published: Fri 07 April 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../author/burgan.html">Burgan</a>
+        </address>
+<p>In <a href="../category/tips.html">Tips</a>.</p>
+<p>tags: <a href="../tag/ubuntu.html">ubuntu</a> <a href="../tag/thinkpad_trackpoint.html">thinkpad_trackpoint</a> </p>
+</footer><!-- /.post-info -->                <p>thinkpad小红点在ubuntu下的驱动</p>
+                <a class="readmore" href="../trakpoint_drive_on_ubuntu.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="social">
                         <h2>social</h2>
