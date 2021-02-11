@@ -1,108 +1,196 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-        <meta charset="utf-8" />
-        <meta name="generator" content="Pelican" />
-        <title>A Pelican Blog - thinkpad_trackpoint</title>
-        <link rel="stylesheet" href="../theme/css/main.css" />
-        <link href="https://www.qicai21.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="A Pelican Blog RSS Feed" />
+    <title>thinkpad_trackpoint - Burgan的干货站</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="..//favicon.ico" rel="icon">
+
+
+    <meta name="author" content="Burgan" />
+    <meta name="keywords" content="thinkpad_trackpoint" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="Burgan的干货站" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Burgan的干货站"/>
+        <meta property="og:url" content=".."/>
+        <meta property="og:description" content="Burgan的干货站"/>
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../theme/css/pygments/friendly.css" rel="stylesheet">
+    <link rel="stylesheet" href="../theme/css/style.css" type="text/css"/>
+
+
+
 </head>
+<body>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="../">A Pelican Blog</a></h1>
-                <nav><ul>
-                    <li><a href="../category/python.html">python</a></li>
-                    <li><a href="../category/tips.html">Tips</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="../" class="navbar-brand">
+Burgan的干货站            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="../category/projects.html">Projects</a>
+                        </li>
+                        <li >
+                            <a href="../category/tips.html">Tips</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="../trakpoint_drive_on_ubuntu.html">Ubuntu: TrackPoint setting</a></h1>
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <article>
+                <h2><a href="../trakpoint_drive_on_ubuntu.html">Ubuntu: TrackPoint setting</a></h2>
+                    <div class="well well-sm">
 <footer class="post-info">
-        <abbr class="published" title="2017-04-07T00:00:00+00:00">
-                Published: Fri 07 April 2017
-        </abbr>
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-04-07T00:00:00+08:00"> Fri 07 April 2017</time>
+    </span>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="../author/burgan.html">Burgan</a>
-        </address>
-<p>In <a href="../category/tips.html">Tips</a>.</p>
-<p>tags: <a href="../tag/ubuntu.html">ubuntu</a> <a href="../tag/thinkpad_trackpoint.html">thinkpad_trackpoint</a> </p>
-</footer><!-- /.post-info --><h2>using xinput command</h2>
-<p><strong>what's xinput?</strong></p>
-<blockquote>
-<p>xinput  is a utility to list available input devices,
-query information about a device and change input device settings.</p>
-<p><a href="http://manpages.ubuntu.com/manpages/zesty/man1/xinput.1.html">more info about xinput</a></p>
-</blockquote>
-<h2>Change configure of TrackPoint</h2>
-<p>Get Device ID of TrackPoint</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$xinput</span> list <span class="p">|</span> grep TrackPoint
-<span class="c1"># get output as follows</span>
-TPPS/2 IBM TrackPoint    <span class="nv">id</span><span class="o">=</span><span class="m">14</span>    <span class="o">[</span>slave  pointer  <span class="o">(</span><span class="m">2</span><span class="o">)]</span>
-</code></pre></div>
 
-<p>Then get setting value by this ID：</p>
-<div class="highlight"><pre><span></span><code>$ xinput list-props <span class="m">14</span>
 
-Device <span class="s1">&#39;TPPS/2 IBM TrackPoint&#39;</span>:
-Device Enabled <span class="o">(</span><span class="m">137</span><span class="o">)</span>:   <span class="m">1</span>
-Coordinate Transformation Matrix <span class="o">(</span><span class="m">139</span><span class="o">)</span>: <span class="m">1</span>.000000, <span class="m">0</span>.000000, <span class="m">0</span>.000000, <span class="m">0</span>.000000, <span class="m">1</span>.000000, <span class="m">0</span>.000000, <span class="m">0</span>.000000, <span class="m">0</span>.000000, <span class="m">1</span>.000000
-Device Accel Profile <span class="o">(</span><span class="m">263</span><span class="o">)</span>: <span class="m">0</span>
-Device Accel Constant Deceleration <span class="o">(</span><span class="m">264</span><span class="o">)</span>:   <span class="m">1</span>.000000
-Device Accel Adaptive Deceleration <span class="o">(</span><span class="m">265</span><span class="o">)</span>:   <span class="m">1</span>.000000
-...
-<span class="c1"># the value in row 5 and 6, it output as：</span>
-Device Accel Constant Deceleration <span class="o">(</span><span class="m">264</span><span class="o">)</span>: <span class="m">1</span>.000000 
-Device Accel Adaptive Deceleration <span class="o">(</span><span class="m">265</span><span class="o">)</span>: <span class="m">1</span>.000000
-</code></pre></div>
 
-<p>其中括号里的整数就是该项设置的ID，后面的小数是该项设置的参数值。
-ID为264（我的机器）代表的是小红点的固定阻力值(Constant Deceleration)，
-取值范围是 [0,1]；ID为265代表的是随力度减弱时阻力增加的速度，
-即小红点停下来的速度，取值范围是 [1,?]。一般来说设置264就够了.</p>
-<p><strong>reset the value:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nv">$xinput</span> set-prop <span class="m">14</span> <span class="m">264</span> <span class="m">0</span>.40
-</code></pre></div>
 
-<p>把下边这条命令加入到 ~/.xprofile</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="c1"># obtain TrackPoint ID from xinput list</span>
-<span class="nv">TP_ID</span><span class="o">=</span><span class="k">$(</span>xinput list <span class="p">|</span> grep TrackPoint <span class="p">|</span> cut -f <span class="m">2</span> <span class="p">|</span> grep -Eo <span class="s1">&#39;[0-9]{1,}&#39;</span><span class="k">)</span>
+<span class="label label-default">Tags</span>
+	<a href="../tag/ubuntu.html">ubuntu</a>
+        /
+	<a href="../tag/thinkpad_trackpoint.html">thinkpad_trackpoint</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>thinkpad小红点在ubuntu下的驱动</p>
+                    <a class="btn btn-default btn-xs" href="../trakpoint_drive_on_ubuntu.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
 
-<span class="k">if</span> <span class="o">[</span> -n <span class="s2">&quot;</span><span class="nv">$TP_ID</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="c1"># obtain properties from xinput list-props &quot;$TP_ID&quot;</span>
-    <span class="nv">AS_ID</span><span class="o">=</span><span class="k">$(</span>xinput list-props <span class="s2">&quot;</span><span class="nv">$TP_ID</span><span class="s2">&quot;</span> <span class="p">|</span> grep <span class="s1">&#39;Accel Constant Deceleration (&#39;</span> <span class="p">|</span> cut -f <span class="m">2</span> <span class="p">|</span> grep -Eo <span class="s1">&#39;[0-9]{1,}&#39;</span><span class="k">)</span>
-    <span class="c1"># set the speed you want</span>
-    <span class="k">$(</span>xinput set-prop <span class="s2">&quot;</span><span class="nv">$TP_ID</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$AS_ID</span><span class="s2">&quot;</span> <span class="m">0</span>.50 <span class="k">)</span>
-<span class="k">fi</span>
-</code></pre></div>
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<div id="aboutme">
+    <p>
+      <strong>About Burgan</strong><br/>
+        PYTHON, UBUNTU, AND More.
+    </p>
+</div><!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
 
-<p>PS: 妈蛋,居然附赠了我一堆shell 脚本的学习工作, 最后一行命令她给写成了:</p>
-<div class="highlight"><pre><span></span><code><span class="k">$(</span>xinput <span class="nb">set</span> -prop <span class="s2">&quot;</span><span class="nv">$TP_ID</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$AS_ID</span><span class="s2">&quot;</span> <span class="m">0</span>.25<span class="k">)</span>
-</code></pre></div>
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="mailto:qicai21@gmail.com"><i class="fa fa-envelope-o fa-lg"></i> envelope-o</a></li>
+    <li class="list-group-item"><a href="https://www.linkedin.com/in/东北-郭-b05753166/"><i class="fa fa-linkedin-square fa-lg"></i> linkedin</a></li>
+    <li class="list-group-item"><a href="https://github.com/qicai21"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
 
-<p>it will be not implemented by bash, 还得自己改.</p>                </article>
-            </aside><!-- /#featured -->
-        <section id="extras" class="body">
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="https://www.qicai21.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate">rss feed</a></li>
+<!-- Sidebar/Tag Cloud -->
+<li class="list-group-item">
+  <a href="../"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <ul class="list-group " id="tags">
+    <li class="list-group-item tag-1">
+      <a href="../tag/ubuntu.html">ubuntu</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="../tag/python.html">python</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="../tag/web.html">web</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="../tag/data_analysis.html">data_analysis</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="../tag/pelican.html">pelican</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="../tag/thinkpad_trackpoint.html">thinkpad_trackpoint</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="../tag/linux.html">linux</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="../tag/python3.html">python3</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Tag Cloud -->
 
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+<!-- Sidebar/Images -->
+<li class="list-group-item">
+  <ul class="list-group" id="links">
+    <img width="100%" class="img-thumbnail" src="/assets/cn_tiktok_qr.png"/>
+  </ul>
+</li>
+<!-- End Sidebar/Images -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
-                </address><!-- /#about -->
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2017 Burgan
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh_cn"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a>
+    &quot;<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Burgan的干货站</span>&quot; by <a xmlns:cc="http://creativecommons.org/ns#" href=".." property="cc:attributionName" rel="cc:attributionURL">Burgan</a> is
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh_cn">Creative Commons Attribution-NonCommercial 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="../theme/js/jquery.min.js"></script>
 
-                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../theme/js/respond.min.js"></script>
+
+
+
 
 </body>
 </html>
