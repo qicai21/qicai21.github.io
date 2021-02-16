@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>使用Pelican搭建github-blogs - Burgan的干货站</title>
+    <title>jupyter notebook的安装和配置 - Burgan的干货站</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,21 +10,20 @@
 
     <link href=".//favicon.ico" rel="icon">
 
-<link rel="canonical" href="./shi-yong-pelicanda-jian-github-blogs.html">
+<link rel="canonical" href="./jupyter-notebookde-an-zhuang-he-pei-zhi.html">
 
         <meta name="author" content="Burgan" />
-        <meta name="keywords" content="pelican,web,python" />
-        <meta name="description" content="使用pelican搭建静态的github博客,简化将markdown和jupyter notebook文件的渲染为博客页面,基于ubuntu系统.抖音有视频." />
+        <meta name="keywords" content="jupyter,python" />
+        <meta name="description" content="添加jupyter notebook配置文件,省去token" />
 
         <meta property="og:site_name" content="Burgan的干货站" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="使用Pelican搭建github-blogs"/>
-        <meta property="og:url" content="./shi-yong-pelicanda-jian-github-blogs.html"/>
-        <meta property="og:description" content="使用pelican搭建静态的github博客,简化将markdown和jupyter notebook文件的渲染为博客页面,基于ubuntu系统.抖音有视频."/>
-        <meta property="article:published_time" content="2021-02-11" />
-            <meta property="article:section" content="Projects" />
-            <meta property="article:tag" content="pelican" />
-            <meta property="article:tag" content="web" />
+        <meta property="og:title" content="jupyter notebook的安装和配置"/>
+        <meta property="og:url" content="./jupyter-notebookde-an-zhuang-he-pei-zhi.html"/>
+        <meta property="og:description" content="添加jupyter notebook配置文件,省去token"/>
+        <meta property="article:published_time" content="2021-02-14" />
+            <meta property="article:section" content="Tips" />
+            <meta property="article:tag" content="jupyter" />
             <meta property="article:tag" content="python" />
             <meta property="article:author" content="Burgan" />
 
@@ -59,10 +58,10 @@ Burgan的干货站            </a>
                         <li >
                             <a href="./category/others.html">Others</a>
                         </li>
-                        <li class="active">
+                        <li >
                             <a href="./category/projects.html">Projects</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="./category/tips.html">Tips</a>
                         </li>
             </ul>
@@ -84,10 +83,10 @@ Burgan的干货站            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="./shi-yong-pelicanda-jian-github-blogs.html"
+                    <a href="./jupyter-notebookde-an-zhuang-he-pei-zhi.html"
                        rel="bookmark"
-                       title="Permalink to 使用Pelican搭建github-blogs">
-                        使用Pelican搭建github-blogs
+                       title="Permalink to jupyter notebook的安装和配置">
+                        jupyter notebook的安装和配置
                     </a>
                 </h1>
             </header>
@@ -97,7 +96,7 @@ Burgan的干货站            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2021-02-11T00:00:00+08:00"> 四 11 二月 2021</time>
+        <i class="fa fa-calendar"></i><time datetime="2021-02-14T00:00:00+08:00"> 日 14 二月 2021</time>
     </span>
 
 
@@ -105,9 +104,7 @@ Burgan的干货站            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="./tag/pelican.html">pelican</a>
-        /
-	<a href="./tag/web.html">web</a>
+	<a href="./tag/jupyter.html">jupyter</a>
         /
 	<a href="./tag/python.html">python</a>
     
@@ -1227,91 +1224,178 @@ h6:hover .anchor-link {
  .highlight pre  .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>略去如何开通github账户,创建一个blog仓库的过程,如许参考:<a href="https://blog.csdn.net/Heriam/article/details/50633473">使用Pelican和Github Pages搭建个人博客详细教程</a></p>
-<p>大致步骤为:</p>
+<p><strong>为什么使用jupyter?</strong></p>
+<ul>
+<li>像草纸一样的操作逻辑</li>
+<li>the best REPL(Read Eval Print Loop)</li>
+<li>多种Kenel: python(原生), Javascript, bash, Haskell, Ruby, Go, Scala, PHP</li>
+<li>数据分析必用</li>
+<li>短视频+blog+code</li>
+</ul>
+<p><strong>为什么要单独配置?</strong></p>
+<p>安装完毕后(略)，执行jupyter notebook，即可快速启动jupyter，
+一般直接会弹出个浏览器页面，地址类似：</p>
+<p><code>Jupyter Notebook 6.2.0 is running at: http://localhost:8888/? \
+token=1bba445e9540f7d40e99e9e3b59dfe78212adfba0d6ae329</code></p>
+<p>虽然它随后会自动打开默认浏览器,但chrome在ubuntu下不支持OBS的窗口录屏,
+不想把支持录屏的firefox设为默认浏览器,造成每次启动的时候都要复制
+长长的一串token,十分不方便.</p>
+<p><strong>就像你想到的那样，肯定有配置文件.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>当然还有通过命令来更改设置的方式,本质与此相同,这里不多介绍:</em></p>
+<div class="highlight"><pre><span></span><span class="nv">$jupyter</span> notebook --ContentsManager.allow_hidden<span class="o">=</span>True
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Step1.-&#29983;&#25104;config">Step1. &#29983;&#25104;config<a class="anchor-link" href="#Step1.-&#29983;&#25104;config">&#182;</a></h2><p>在用户目录下创建一个配置.</p>
+<div class="highlight"><pre><span></span>$ jupyter notebook --generate-config
+</pre></div>
+<p>输出如下:</p>
+<div class="highlight"><pre><span></span>Writing default config to: ~/.jupyter/jupyter_notebook_config.py
+</pre></div>
+<p>查看一下配置文件中关于password的和browser的内容:</p>
+<div class="highlight"><pre><span></span>$ egrep <span class="s1">&#39;password\s=|browser\s=&#39;</span> ~/.jupyter/jupyter_notebook_config.py
+</pre></div>
+<p>输出如下:</p>
+<div class="highlight"><pre><span></span><span class="c1"># c.NotebookApp.browser = &#39; &#39;</span>
+<span class="c1"># c.NotebookApp.open_browser = True</span>
+<span class="c1"># c.NotebookApp.password = &#39; &#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Step2.-&#35774;&#23450;&#30331;&#24405;&#23494;&#30721;,&#20195;&#26367;token&#21551;&#21160;">Step2. &#35774;&#23450;&#30331;&#24405;&#23494;&#30721;,&#20195;&#26367;token&#21551;&#21160;<a class="anchor-link" href="#Step2.-&#35774;&#23450;&#30331;&#24405;&#23494;&#30721;,&#20195;&#26367;token&#21551;&#21160;">&#182;</a></h2><h3 id="Plan-A.-&#21464;&#26356;token&#20026;&#23494;&#30721;">Plan-A. &#21464;&#26356;token&#20026;&#23494;&#30721;<a class="anchor-link" href="#Plan-A.-&#21464;&#26356;token&#20026;&#23494;&#30721;">&#182;</a></h3><p>需要注意的是，config的c.NotebookApp.password配置的并非明文密码：</p>
+<p>在命令行下输入python，进入REPL环境(当然你也可以在notebook中完成)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">notebook.auth</span> <span class="kn">import</span> <span class="n">passwd</span>
+
+<span class="n">passwd</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Enter password: ········
+Verify password: ········
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[1]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;argon2:$argon2id$v=19$m=10240,t=10,p=8$/PRU5sswcl6ctGoRRRfWiA$PD2MLc2RGjJWWzbAVJzFOw&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>argon2没见过?别紧张,argon2是一种比较新的加密算法,将整个字符串
+赋值给config.py中的<code>c.NotebookApp.password = ' '</code>即可.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Plan-B.-&#25351;&#23450;&#40664;&#35748;&#27983;&#35272;&#22120;">Plan-B. &#25351;&#23450;&#40664;&#35748;&#27983;&#35272;&#22120;<a class="anchor-link" href="#Plan-B.-&#25351;&#23450;&#40664;&#35748;&#27983;&#35272;&#22120;">&#182;</a></h3><p>通过更改<code>config</code>中的以下两个选项来决定notebook启动时浏览器的行为:</p>
 <ol>
-<li>pip安装pelican,markdown(略)</li>
-<li>初始化pelican project</li>
-<li>关联到github</li>
-<li>简单调整,测试项目</li>
-<li>添加.md, .ipynb文件</li>
-<li>选择合适的theme和必要的plugin</li>
-<li>调整pelican config, 查看成型blog</li>
+<li><p><code>c.NotebookApp.browser</code>: 关联的浏览器是什么.</p>
+</li>
+<li><p><code>c.NotebookApp.open_browser</code>: 是否自动打开关联浏览器.</p>
+</li>
 </ol>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 指定firfox</span>
+<span class="kn">import</span> <span class="nn">webbrowser</span>
+
+<span class="n">webbrowser</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;firefox&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">webbrowser</span><span class="o">.</span><span class="n">GenericBrowser</span><span class="p">(</span><span class="s1">&#39;firefox&#39;</span><span class="p">))</span>
+<span class="n">c</span><span class="o">.</span><span class="n">NotebookApp</span><span class="o">.</span><span class="n">browser</span> <span class="o">=</span> <span class="s1">&#39;firefox&#39;</span>
+
+<span class="c1"># 自动新建标签页打开</span>
+<span class="n">c</span><span class="o">.</span><span class="n">NotebookApp</span><span class="o">.</span><span class="n">open_browser</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="1.-&#21021;&#22987;&#21270;pelican-project">1. &#21021;&#22987;&#21270;pelican project<a class="anchor-link" href="#1.-&#21021;&#22987;&#21270;pelican-project">&#182;</a></h2><p>创建blog文件夹, 在文件夹下初始化pelican项目,顺便准备好你的素材文件夹.</p>
+<h3 id="&#38468;&#21152;&#30340;&#30693;&#35782;">&#38468;&#21152;&#30340;&#30693;&#35782;<a class="anchor-link" href="#&#38468;&#21152;&#30340;&#30693;&#35782;">&#182;</a></h3><h4 id="1.-&#22914;&#20309;&#22312;notebook&#30340;bash-kernel&#20013;&#20351;&#29992;python&#20195;&#30721;">1. &#22914;&#20309;&#22312;notebook&#30340;bash kernel&#20013;&#20351;&#29992;python&#20195;&#30721;<a class="anchor-link" href="#1.-&#22914;&#20309;&#22312;notebook&#30340;bash-kernel&#20013;&#20351;&#29992;python&#20195;&#30721;">&#182;</a></h4><p>通过python3 -c就可以</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span><span class="nb">cd</span> <span class="nv">$your_blog_folder</span>
-pelican-quickstart
-</pre></div>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">c</span> \
+<span class="s2">&quot;</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
-    </div>
-</div>
-</div>
+<span class="n">foo</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span><span class="c1"># $ pelican-quickstart</span>
-
-Welcome to pelican-quickstart v3.4.0.
-
-This script will <span class="nb">help</span> you create a new Pelican-based website.
-
-Please answer the following questions so this script can generate the files
-needed by Pelican.
-
-$ Where <span class="k">do</span> you want to create your new web site? <span class="o">[</span>.<span class="o">]</span> ------------------------- 回车就行
-$ What will be the title of this web site? ----------------------------------- 随便来个名字,之后随时能改
-$ Who will be the author of this web site? ----------------------------------- 随便来个名字,之后随时能改
-$ What will be the default language of this web site? ------------------------ zh_CN
-$ Do you want to specify a URL prefix? e.g., http://example.com   <span class="o">(</span>Y/n<span class="o">)</span> ------ 回车就行
-$ What is your URL prefix? <span class="o">(</span>see above example<span class="p">;</span> no trailing slash<span class="o">)</span> ------------ https://user@user.github.io
-$ Do you want to <span class="nb">enable</span> article pagination? <span class="o">(</span>Y/n<span class="o">)</span> ---------------------------- 说的是页码翻页,默认是,回车
-$ How many articles per page <span class="k">do</span> you want? <span class="o">[</span><span class="m">10</span><span class="o">]</span> ------------------------------- 每页显示多少文章,默认10个够用
-$ Do you want to generate a Fabfile/Makefile to automate generation and publishing? <span class="o">(</span>Y/n<span class="o">)</span> --- 自动生成,选是
-$ Do you want an auto-reload <span class="p">&amp;</span> simpleHTTP script to assist with theme and site development? <span class="o">(</span>Y/n<span class="o">)</span> -自动上传,选是
-$ Do you want to upload your website using FTP? <span class="o">(</span>y/N<span class="o">)</span> ------------------------ n
-$ Do you want to upload your website using SSH? <span class="o">(</span>y/N<span class="o">)</span> ------------------------ n
-$ Do you want to upload your website using Dropbox? <span class="o">(</span>y/N<span class="o">)</span> -------------------- n
-$ Do you want to upload your website using S3? <span class="o">(</span>y/N<span class="o">)</span> ------------------------- n
-$ Do you want to upload your website using Rackspace Cloud Files? <span class="o">(</span>y/N<span class="o">)</span> ------ n
-$ Do you want to upload your website using GitHub Pages? <span class="o">(</span>y/N<span class="o">)</span> --------------- y
-$ Is this your personal page <span class="o">(</span>username.github.io<span class="o">)</span>? <span class="o">(</span>y/N<span class="o">)</span> --------------------- n
-Done. Your new project is available at home/tyler/folder_to_use
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span><span class="nb">cd</span> content
-mkdir pages assets images <span class="nv">$category1</span> <span class="nv">$category2</span> <span class="nv">$etc</span>
-tree -L <span class="m">1</span>
-tree content -L <span class="m">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">foo</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y--%m--</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">))</span>
+<span class="s2">&quot;</span>
 </pre></div>
 
     </div>
@@ -1328,29 +1412,7 @@ tree content -L <span class="m">1</span>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre><span class="ansi-blue-intense-fg ansi-bold">.</span>
-├── 12
-├── <span class="ansi-blue-intense-fg ansi-bold">content</span>
-├── Makefile
-├── <span class="ansi-blue-intense-fg ansi-bold">output</span>
-├── pelicanconf_bak.py
-├── pelicanconf.py
-├── <span class="ansi-blue-intense-fg ansi-bold">pelican-plugins</span>
-├── <span class="ansi-blue-intense-fg ansi-bold">pelican-themes</span>
-├── publishconf.py
-├── <span class="ansi-blue-intense-fg ansi-bold">__pycache__</span>
-└── tasks.py
-
-5 directories, 6 files
-<span class="ansi-blue-intense-fg ansi-bold">content</span>
-├── <span class="ansi-blue-intense-fg ansi-bold">assets</span>
-├── <span class="ansi-blue-intense-fg ansi-bold">images</span>
-├── <span class="ansi-blue-intense-fg ansi-bold">others</span>
-├── <span class="ansi-blue-intense-fg ansi-bold">pages</span>
-├── <span class="ansi-blue-intense-fg ansi-bold">python</span>
-└── <span class="ansi-blue-intense-fg ansi-bold">ubuntu</span>
-
-6 directories, 0 files
+<pre>2021--02--14
 </pre>
 </div>
 </div>
@@ -1362,125 +1424,33 @@ tree content -L <span class="m">1</span>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2.-&#20851;&#32852;&#21040;github">2. &#20851;&#32852;&#21040;github<a class="anchor-link" href="#2.-&#20851;&#32852;&#21040;github">&#182;</a></h2><p>进入output文件夹，把自己的username.github.io版本库clone下来，注意这里以及后文中的username要替换成自己的Github用户名.</p>
-<p>不熟悉git和github的,可以自行搜索一下,这里建议将公钥上传到github上,方便之后的push.</p>
+<h4 id="2.-&#21152;&#23494;&#26041;&#27861;&#20043;md5,-hash,-and-argon2">2. &#21152;&#23494;&#26041;&#27861;&#20043;md5, hash, and argon2<a class="anchor-link" href="#2.-&#21152;&#23494;&#26041;&#27861;&#20043;md5,-hash,-and-argon2">&#182;</a></h4><p>上边这些都是加密算法,普遍认为argon2安全性更高.
+在notebook中可以测试:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span><span class="nb">cd</span> ./output
-git init
-git checkout -b main
-git remote add origin git@github.com:<span class="nv">$username</span>/<span class="nv">$username</span>.github.io.git
-git pull origin main
-</pre></div>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">notebook.auth</span> <span class="kn">import</span> <span class="n">passwd</span>
+<span class="kn">from</span> <span class="nn">notebook.auth.security</span> <span class="kn">import</span> <span class="n">passwd_check</span>
 
-    </div>
-</div>
-</div>
+<span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;myPass123&#39;</span>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.-&#31616;&#21333;&#35843;&#25972;,&#27979;&#35797;&#39033;&#30446;">3. &#31616;&#21333;&#35843;&#25972;,&#27979;&#35797;&#39033;&#30446;<a class="anchor-link" href="#3.-&#31616;&#21333;&#35843;&#25972;,&#27979;&#35797;&#39033;&#30446;">&#182;</a></h2><p>简单调整以下自动生成的配置文件,git推送功能,能打开网页就算成功.</p>
-<p><strong>pelican有如下命令</strong>, 但可能最长用的:</p>
-<ul>
-<li>[x] make html</li>
-<li>[ ] make help</li>
-<li>[ ] make clean</li>
-<li>[ ] make regenerate</li>
-<li>[x] make serve </li>
-<li>[ ] make serve-global</li>
-<li>[ ] make devserver</li>
-<li>[x] make publish</li>
-<li>[x] make github</li>
-</ul>
-<h3 id="3.1-&#35843;&#25972;&#20004;&#20010;&#25991;&#20214;">3.1 &#35843;&#25972;&#20004;&#20010;&#25991;&#20214;<a class="anchor-link" href="#3.1-&#35843;&#25972;&#20004;&#20010;&#25991;&#20214;">&#182;</a></h3><p><code>Makefile</code>, 原配置采用ghp-import,封装了git命令,但不是很好用.修改:</p>
-<div class="highlight"><pre><span></span>github: publish
-    <span class="nb">cd</span> <span class="k">$(</span>OUTPUTDIR<span class="k">)</span> <span class="p">;</span> git add . <span class="p">;</span> git commit -am <span class="s2">&quot;generate pelican site&quot;</span> <span class="p">;</span> git push origin <span class="k">$(</span>GITHUB_PAGES_BRANCH<span class="k">)</span>
-</pre></div>
-<p><code>publishconf.py</code>, 因为DELETE_OUTPUT_DIRECTORY默认为True,修改:</p>
-<div class="highlight"><pre><span></span><span class="n">DELETE_OUTPUT_DIRECTORY</span> <span class="o">=</span> <span class="kc">False</span>
-</pre></div>
+<span class="n">hashed_argon2</span> <span class="o">=</span> <span class="n">passwd</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+<span class="n">hashed_sha1</span> <span class="o">=</span> <span class="n">passwd</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="s1">&#39;sha1&#39;</span><span class="p">)</span>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.2-&#28155;&#21152;&#19968;&#20123;markdowns,-&#24182;&#28155;&#21152;pelican-titles">3.2 &#28155;&#21152;&#19968;&#20123;markdowns, &#24182;&#28155;&#21152;pelican titles<a class="anchor-link" href="#3.2-&#28155;&#21152;&#19968;&#20123;markdowns,-&#24182;&#28155;&#21152;pelican-titles">&#182;</a></h3><p>将该notebook保存到<code>content/pages</code>下,完后，执行以下命令，即可在本机<a href="http://127.0.0.1:8000看到效果。">http://127.0.0.1:8000看到效果。</a></p>
-<p>pelican通过一些列title来自动渲染md文件:</p>
-<ul>
-<li>Title: Pelican+Github --------------- 决定在首页显示的title, 注意一定要放在第行; </li>
-<li>Slug: build-blog-system-by-pelican -- 渲染成html的名称;</li>
-<li>Status: published ------------------- published or draft or hidden.</li>
-<li>Date: 2021-01-07 22:20</li>
-<li>Tags: python, pelican</li>
-<li>Authors: your name </li>
-<li>Summary: some chars ----------------- 简要概述,会显示在首页.</li>
-</ul>
-<p>更多参考: <a href="https://docs.getpelican.com">Doc of Pelican</a></p>
-<p><strong>运行命令,看看结果如何,渲染markdowns为html</strong></p>
+<span class="nb">print</span><span class="p">(</span><span class="n">hashed_argon2</span><span class="p">)</span>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span>make github
-</pre></div>
+<span class="nb">print</span><span class="p">(</span><span class="n">hashed_sha1</span><span class="p">)</span>
 
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="4.-&#28155;&#21152;.md,-.ipynb&#25991;&#20214;">4. &#28155;&#21152;.md, .ipynb&#25991;&#20214;<a class="anchor-link" href="#4.-&#28155;&#21152;.md,-.ipynb&#25991;&#20214;">&#182;</a></h2><p>markdown, 和jupyter笔记文件应该分类放在content不同的子目录下,注意不要简单塞到pages下,pages是存放404等功能页面的.pelican通常是用content的子目录作为文章页面的category来区分blog的板块.</p>
-<p>可以尽可能多的准备测试markdown和笔记文件,至少大于首页数量,这样等下测试时能发现更全面的问题.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="5.-&#36873;&#25321;&#21512;&#36866;&#30340;theme&#21644;plugins">5. &#36873;&#25321;&#21512;&#36866;&#30340;theme&#21644;plugins<a class="anchor-link" href="#5.-&#36873;&#25321;&#21512;&#36866;&#30340;theme&#21644;plugins">&#182;</a></h2><h3 id="5.1-&#28155;&#21152;theme">5.1 &#28155;&#21152;theme<a class="anchor-link" href="#5.1-&#28155;&#21152;theme">&#182;</a></h3><p>pelican themes集合有很多很多, 此处暂列出比较丰富的一个:<a href="https://github.com/getpelican/pelican-themes">getpelican/pelican-themes</a>.可以挑选任意中意的样式,里边都有非常详细的配置说明.</p>
-<p>以<a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3">pelican-bootstrap3</a> 为例,如何安装theme:</p>
-<ul>
-<li>[x] Step-1: install theme by git clone repo.</li>
-<li>[x] Step-2: Point the THEME variable in your pelicanconf.py to /path/to/pelican-bootstrap3</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>在<code>$your_blogs_folder</code>下通过git安装,有点大,请耐心.</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span>git clone https://github.com/getpelican/pelican-themes.git/
+<span class="n">result</span> <span class="o">=</span> <span class="n">passwd_check</span><span class="p">(</span><span class="n">hashed_argon2</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">passwd_check</span><span class="p">(</span><span class="n">hashed_sha1</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1497,13 +1467,10 @@ git pull origin main
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>正克隆到 &#39;pelican-themes&#39;...
-remote: Enumerating objects: 6, done.
-remote: Counting objects: 100% (6/6), done.
-remote: Compressing objects: 100% (5/5), done.
-remote: Total 6504 (delta 1), reused 3 (delta 1), pack-reused 6498
-接收对象中: 100% (6504/6504), 31.52 MiB | 982.00 KiB/s, 完成.
-处理 delta 中: 100% (3272/3272), 完成.
+<pre>argon2:$argon2id$v=19$m=10240,t=10,p=8$+WYimSVVYQg3hBJmJ/Y/kQ$VHgbQFjJUDVWrDtpP3RvBA
+sha1:0aca2c0552d7:26e47988974c1020946a5174372ad47a87ffaae3
+True
+True
 </pre>
 </div>
 </div>
@@ -1512,61 +1479,60 @@ remote: Total 6504 (delta 1), reused 3 (delta 1), pack-reused 6498
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span><span class="nb">cd</span> pelican-themes
-pelican-themes -i bootstrap2
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="5.2-&#28155;&#21152;&#24517;&#35201;&#25554;&#20214;">5.2 &#28155;&#21152;&#24517;&#35201;&#25554;&#20214;<a class="anchor-link" href="#5.2-&#28155;&#21152;&#24517;&#35201;&#25554;&#20214;">&#182;</a></h3><p>方法同theme的安装,然后根据需要在pelicanconf.py中选择和配置插件.具体的选择和配置等下再说.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span>git clone --recursive https://github.com/getpelican/pelican-plugins
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="5.3-&#28155;&#21152;&#23545;.ipynb&#30340;&#25903;&#25345;">5.3 &#28155;&#21152;&#23545;.ipynb&#30340;&#25903;&#25345;<a class="anchor-link" href="#5.3-&#28155;&#21152;&#23545;.ipynb&#30340;&#25903;&#25345;">&#182;</a></h3><p>渲染jupyter笔记文件的方式不止一种,这里暂时以<a href="https://github.com/danielfrg/pelican-jupyter.git">pelican-jupyter</a>为例,来使pelican对jupyter notebook进行支持.</p>
-<blockquote><p>theme pelican-bootstrap3 + plugin liquid_tags.notebook 的组合同样能实现笔记渲染.</p>
+<blockquote><p>更多的知识参考:</p>
+<ul>
+<li><p><a href="https://blog.csdn.net/qq_36431213/article/details/80211061">忘记MD5 Sha1吧 从现在开始使用 Bcrypt 和 Argon2i</a></p>
+</li>
+<li><p><a href="https://github.com/jupyter/notebook/blob/master/notebook/auth/security.py#L24">DOCS: notebook.auth.security</a></p>
+</li>
+</ul>
 </blockquote>
-<p><strong>Installation</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="3.-python&#20013;&#20351;&#29992;webbrowser&#25171;&#24320;&#27983;&#35272;&#22120;&#21040;&#25351;&#23450;&#32593;&#39029;">3. python&#20013;&#20351;&#29992;webbrowser&#25171;&#24320;&#27983;&#35272;&#22120;&#21040;&#25351;&#23450;&#32593;&#39029;<a class="anchor-link" href="#3.-python&#20013;&#20351;&#29992;webbrowser&#25171;&#24320;&#27983;&#35272;&#22120;&#21040;&#25351;&#23450;&#32593;&#39029;">&#182;</a></h4><p>一个演示,运行一下就明白了.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-bash"><pre><span></span>pip install pelican-jupyter
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">webbrowser</span>
+<span class="n">webbrowser</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;firefox&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">webbrowser</span><span class="o">.</span><span class="n">GenericBrowser</span><span class="p">(</span><span class="s1">&#39;firefox&#39;</span><span class="p">))</span>
+<span class="n">webbrowser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;firefox&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;https://www.google.com&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -1574,101 +1540,25 @@ pelican-themes -i bootstrap2
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="6.-&#35843;&#25972;pelicanconf.py">6. &#35843;&#25972;pelicanconf.py<a class="anchor-link" href="#6.-&#35843;&#25972;pelicanconf.py">&#182;</a></h2><p>通过反复修改pelicanconf.py -- 生成页面 -- 在本地服务器上查看渲染效果,这样的过程来最终达成你预期的效果.</p>
-<p>其中部分WARNING也不要害怕,甚至有的只是兼容性bug,不会影响你的网站效果.</p>
-<p>具体的每一条配置效果,将会在视频中展示,此处仅给出我最终(暂时)的pelicanconf.py文件,供你找找感觉.</p>
-<p>"""python</p>
-
-<pre><code>from pelican_jupyter import markup as nb_markup
-
-AUTHOR = 'Burgan'
-
-SITENAME = "Burgan的干货站"
-
-PATH = 'content'
-
-TIMEZONE = 'Asia/Shanghai'
-
-DEFAULT_LANG = 'zh_CN'
-
-FEED_ALL_ATOM = None
-
-CATEGORY_FEED_ATOM = None
-
-TRANSLATION_FEED_ATOM = None
-
-AUTHOR_FEED_ATOM = None
-
-AUTHOR_FEED_RSS = None
-
-DEFAULT_PAGINATION = 10
-
-BOOTSTRAP_NAVBAR_INVERSE = True
-
-ABOUT_ME = 'PYTHON, UBUNTU, AND More.'
-
-DISPLAY_ARTICLE_INFO_ON_INDEX = True
-
-FAVICON = '/favicon.ico'
-
-PYGMENTS_STYLE = 'friendly'
-
-#####  Theme select 
-THEME = './pelican-themes/pelican-bootstrap3'
-
-##### Sidebar options
-SOCIAL = (('envelope-o', 'mailto:your_mail_address'),
-          ('linkedin', 'https://www.linkedin.com/in/东北-郭-b05753166/'),
-          ('github', 'https://github.com/qicai21')
-          )
-
-DISPLAY_TAGS_ON_SIDEBAR = True
-
-RELATIVE_URLS = True
-
-SIDEBAR_IMAGES = ["/assets/cn_tiktok_qr.png", ]
-
-#### Plugins
-PLUGIN_PATHS = ['./pelican-plugins']
-
-PLUGINS = ['i18n_subsites', 'tag_cloud',
-           'optimize_images', nb_markup]
-
-JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
-
-I18N_TEMPLATES_LANG = 'en'
-
-#### for plugin jupyter notebook file rendering
-MARKUP = ('md', 'ipynb')
-
-IPYNB_MARKUP_USE_FIRST_CELL = True
-
-IGNORE_FILES = [".ipynb_checkpoints"]
-
-#### plugin related_posts
-RELATED_POSTS_MAX = 5
-
-#### Content License
-CC_ATTR_MARKUP = True
-
-CC_LICENSE_DERIVATIVES = 'yes'
-
-CC_LICENSE_COMMERCIAL = 'no'
-
-
-#### others
-STATIC_PATHS = ['images', 'assets']
-EXTRA_PATH_METADATA = {
-    'assets/favicon.ico': {'path': 'favicon.ico'},
-    'extra/custom.css': {'path': 'static/custom.css'},
-    'assets/devops_cover.png': {'path': 'devops_cover.png'},
-    'assets/cn_tiktok_qr.png': {'path': 'assets/cn_tiktok_qr.png'},
-    'assets/wechat_qr.jpg': {'path': 'assets/wechat_qr.jpg'},
-}
-
-
-</code></pre>
-<p>"""</p>
+<hr>
+<h2 id="Thanks-and-End!">Thanks and End!<a class="anchor-link" href="#Thanks-and-End!">&#182;</a></h2><hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
 
 </div>
 </div>

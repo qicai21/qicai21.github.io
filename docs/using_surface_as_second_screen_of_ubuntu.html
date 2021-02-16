@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>一条命令实现pip更新全部包 - Burgan的干货站</title>
+    <title>使用surface作为ubuntu的扩展屏[折腾] - Burgan的干货站</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,21 +10,20 @@
 
     <link href=".//favicon.ico" rel="icon">
 
-<link rel="canonical" href="./pip_upgrade_all_pkg.html">
+<link rel="canonical" href="./using_surface_as_second_screen_of_ubuntu.html">
 
         <meta name="author" content="Burgan" />
-        <meta name="keywords" content="ubuntu,python3" />
-        <meta name="description" content="通过pip命令更新全部pip package,但是谨慎使用. pip freeze --local | grep -v &#39;^\-e&#39; | cut -d = -f 1 | xargs pip install -U" />
+        <meta name="keywords" content="ubuntu" />
+        <meta name="description" content="在ubuntu20系统下,尝试使用surface pro3作为扩展屏,记录了参考文献,但折腾未成功." />
 
         <meta property="og:site_name" content="Burgan的干货站" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="一条命令实现pip更新全部包"/>
-        <meta property="og:url" content="./pip_upgrade_all_pkg.html"/>
-        <meta property="og:description" content="通过pip命令更新全部pip package,但是谨慎使用. pip freeze --local | grep -v &#39;^\-e&#39; | cut -d = -f 1 | xargs pip install -U"/>
-        <meta property="article:published_time" content="2018-05-29" />
-            <meta property="article:section" content="Tips" />
+        <meta property="og:title" content="使用surface作为ubuntu的扩展屏[折腾]"/>
+        <meta property="og:url" content="./using_surface_as_second_screen_of_ubuntu.html"/>
+        <meta property="og:description" content="在ubuntu20系统下,尝试使用surface pro3作为扩展屏,记录了参考文献,但折腾未成功."/>
+        <meta property="article:published_time" content="2021-02-10" />
+            <meta property="article:section" content="Others" />
             <meta property="article:tag" content="ubuntu" />
-            <meta property="article:tag" content="python3" />
             <meta property="article:author" content="Burgan" />
 
 
@@ -55,13 +54,13 @@ Burgan的干货站            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                        <li >
+                        <li class="active">
                             <a href="./category/others.html">Others</a>
                         </li>
                         <li >
                             <a href="./category/projects.html">Projects</a>
                         </li>
-                        <li class="active">
+                        <li >
                             <a href="./category/tips.html">Tips</a>
                         </li>
             </ul>
@@ -83,10 +82,10 @@ Burgan的干货站            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="./pip_upgrade_all_pkg.html"
+                    <a href="./using_surface_as_second_screen_of_ubuntu.html"
                        rel="bookmark"
-                       title="Permalink to 一条命令实现pip更新全部包">
-                        一条命令实现pip更新全部包
+                       title="Permalink to 使用surface作为ubuntu的扩展屏[折腾]">
+                        使用surface作为ubuntu的扩展屏[折腾]
                     </a>
                 </h1>
             </header>
@@ -96,7 +95,7 @@ Burgan的干货站            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2018-05-29T00:00:00+08:00"> 二 29 五月 2018</time>
+        <i class="fa fa-calendar"></i><time datetime="2021-02-10T00:00:00+08:00"> 三 10 二月 2021</time>
     </span>
 
 
@@ -105,14 +104,55 @@ Burgan的干货站            </a>
 
 <span class="label label-default">Tags</span>
 	<a href="./tag/ubuntu.html">ubuntu</a>
-        /
-	<a href="./tag/python3.html">python3</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p><strong>通过下边的命令可以更新出全部pip包,但因为有破坏不同包的依赖性问题,所以谨慎使用.</strong></p>
-<div class="highlight"><pre><span></span><code>$ pip freeze --local <span class="p">|</span> grep -v <span class="s1">&#39;^\-e&#39;</span> <span class="p">|</span> cut -d <span class="o">=</span> -f <span class="m">1</span> <span class="se">\</span>
-<span class="p">|</span> xargs pip install -U
+                <p>为了把surface pro3作为ubuntu笔记本的扩展屏,尝试了一系列方法,但效果都不好.将主要文献记进行简单收录,以后备用.</p>
+<p>目前可行方案有:</p>
+<p><a href="https://deskreen.com/">Deskreen</a>
+   <a href="https://github.com/albfan/miraclecast">miraclecast</a>
+   <a href="https://superuser.com/questions/1375448/using-windows-laptop-as-2nd-screen-for-ubuntu-desktop-possible">Virtual Monitor Over VNC</a></p>
+<p><strong>Deskreen</strong> 这个是利用浏览器广播的,不能完全代替扩展屏,好在配置简单,使用方便.
+但是好像对wifi网络有要求,家里的双频网2.4g就连不通,5g就能联通.</p>
+<p><strong>miraclecast</strong> 非常粗鄙的理解,这个相当于利用miracle服务,将ubuntu上
+的NetworkManager.service &amp; wpa_supplicant.service给嫁接了一下,做一个合并转发,
+然后就能实现在局域网内的投屏.</p>
+<p><strong>VNC Server</strong> 与miracle类似,具体还没仔细看.</p>
+<h2>miraclecast不能正常工作,可能仅限于我的电脑</h2>
+<hr>
+<blockquote>
+<p>关于安装miraclecast,反复测试安装后依旧不能正常工作,
+可能跟网卡的驱动有关,也可能有其他原因.
+大致就是说miracle服务向wpa_supplicant发送命令时有长度限制,
+15个字,但是部分系统或环境下因为wirless的名字的原因,
+长度超出了,就不能正常工作.
+具体参阅:
+<a href="https://github.com/albfan/miraclecast/issues/285">WARNING: supplicant: wpa_supplicant or driver does not support P2P</a></p>
+</blockquote>
+<p><strong>安装要求:</strong></p>
+<p>systemd版本&gt;221,主要是关于kdbus和udev有要求,具体这些是什么我也不知道.</p>
+<p><strong>安装过程:</strong></p>
+<ol>
+<li>git clone to /usr/local/share/</li>
+<li>确保已经满足了官方文档中的Requirements,特别是第4,5,6容易被忽视,缺什么就装什么</li>
+</ol>
+<p><strong>Install GStreamer</strong></p>
+<ol>
+<li>安装必要的模块,之后编译autogen.sh</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> /usr/local/share/miraclecast
+
+sudo apt-get update
+sudo apt-get install ubuntu-dev-tools autoconf libtool libudev-dev
+sudo apt-get install libsystemd-dev glib-2.0 libperl-dev libgtk2.0-dev libreadline-dev
+
+libtoolize<span class="p">;</span> aclocal<span class="p">;</span> autoconf
+
+sudo ./autogen.sh
+
+sudo ./configure
+sudo make
+sudo make install
 </code></pre></div>
             </div>
             <!-- /.entry-content -->
