@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>使用urllib或requests自动上传数据中的`mutipart/form-data`上传问题 - Burgan的干货站</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href=".//favicon.ico" rel="icon">
+
+<link rel="canonical" href="./mutlpart_form_data_defualt_value_setting_while_post_by_requests.html">
+
+        <meta name="author" content="Burgan" />
+        <meta name="keywords" content="requests,crawler,requests_toolbelt,WebKitFormBoundary,图片上传,爬虫" />
+        <meta name="description" content="使用python制作批量上传图片报告的小应用, 遇到了urllib, requests等模块选择问题和参数提示WebKitFormBoundary的问题." />
+
+        <meta property="og:site_name" content="Burgan的干货站" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="使用urllib或requests自动上传数据中的`mutipart/form-data`上传问题"/>
+        <meta property="og:url" content="./mutlpart_form_data_defualt_value_setting_while_post_by_requests.html"/>
+        <meta property="og:description" content="使用python制作批量上传图片报告的小应用, 遇到了urllib, requests等模块选择问题和参数提示WebKitFormBoundary的问题."/>
+        <meta property="article:published_time" content="2020-12-11" />
+            <meta property="article:section" content="Tips" />
+            <meta property="article:tag" content="requests" />
+            <meta property="article:tag" content="crawler" />
+            <meta property="article:tag" content="requests_toolbelt" />
+            <meta property="article:tag" content="WebKitFormBoundary" />
+            <meta property="article:tag" content="图片上传" />
+            <meta property="article:tag" content="爬虫" />
+            <meta property="article:author" content="Burgan" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/friendly.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+Burgan的干货站            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="./category/others.html">Others</a>
+                        </li>
+                        <li >
+                            <a href="./category/projects.html">Projects</a>
+                        </li>
+                        <li class="active">
+                            <a href="./category/tips.html">Tips</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<!-- Banner -->
+<!-- End Banner -->
+
+<!-- Content Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./mutlpart_form_data_defualt_value_setting_while_post_by_requests.html"
+                       rel="bookmark"
+                       title="Permalink to 使用urllib或requests自动上传数据中的`mutipart/form-data`上传问题">
+                        使用urllib或requests自动上传数据中的`mutipart/form-data`上传问题
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2020-12-11T00:00:00+08:00"> 五 11 十二月 2020</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/requests.html">requests</a>
+        /
+	<a href="./tag/crawler.html">crawler</a>
+        /
+	<a href="./tag/requests_toolbelt.html">requests_toolbelt</a>
+        /
+	<a href="./tag/webkitformboundary.html">WebKitFormBoundary</a>
+        /
+	<a href="./tag/tu-pian-shang-chuan.html">图片上传</a>
+        /
+	<a href="./tag/pa-chong.html">爬虫</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>上周,使用python3.7制作批量上传图片报告的小应用, 遇到了urllib, requests等模块选择问题和参数提示WebKitFormBoundary的问题.</p>
+<h2>1. 简单短链接用urllib,通常requests更好用</h2>
+<p>当搜索python爬虫时,得到的答案中urllib,urllib2,urllib3,requests都会碰到,部分代码未作说明,不清楚他们区别的情况下乱用必然适得其反.</p>
+<p><strong>urllib</strong></p>
+<ul>
+<li>非常基础的模块,python2就有,python3开始吸收了urllib2的部分功能,变得好用起来.</li>
+<li>短联接,基本的上传,下载通过<code>urlopen</code>就实现了.</li>
+</ul>
+<p><strong>urllib2</strong></p>
+<ul>
+<li>python2中的主力模块,在python3中被整编到urllib.request, urllib.error中.</li>
+</ul>
+<p><strong>urllib3</strong></p>
+<ul>
+<li>非标准库,基于urllib和http库,封装了一些特性,在连接池(urllib3.PoolManager)和socks方面实现与requests有所不同.</li>
+<li>如果requests有解决不了的问题时,urllib3可能是个思路.</li>
+</ul>
+<p><strong>requests</strong></p>
+<ul>
+<li>非标准库,极大成者,最常用.urllib封装了http下的各种功能, requests又封装了urllib, 所以碰到问题直接使用requests就对了.</li>
+<li>同样支持长链接,连接池,再加上一系列增强模块, e.g., requests_toolbelt, requesocks, PySocks, etc.</li>
+</ul>
+<p><strong>http.client</strong></p>
+<ul>
+<li>这个模块定义了实现 HTTP 和 HTTPS 协议客户端的类。 它通常不直接使用 .</li>
+<li>模块 urllib.request 用它来处理使用 HTTP 和 HTTPS 的 URL.</li>
+<li>HTTPS 支持仅在编译 Python 时启用了 SSL 支持的情况下（通过 ssl 模块）可用.</li>
+</ul>
+<p><strong>httplib2</strong></p>
+<ul>
+<li>也有它自己的功能,但相关介绍很少.下边是httplib2的示例,可以看出还是非常底层的.</li>
+</ul>
+<p><code>python
+  #!/usr/bin/python3
+  import urllib.parse
+  import httplib2
+  http = httplib2.Http()
+  url = 'http://www.example.com/login'   
+  body = {'USERNAME': 'foo', 'PASSWORD': 'bar'}
+  headers = {'Content-type': 'application/x-www-form-urlencoded'}
+  response, content = http.request(url, 'POST', headers=headers, body=urllib.parse.urlencode(body))
+  headers = {'Cookie': response['set-cookie']}
+  url = 'http://www.example.com/home'   
+  response, content = http.request(url, 'GET', headers=headers)</code></p>
+<h2>2. WebKitFormBoundary可用request_toolbelt.MutipartEncoder解决</h2>
+<p>上传图片通过chrome 查看,参数提示有WebKitFormBoundary,含义为将上传的数据通过"一个固定边界包裹住",i.e.,在encode时引入固定格式的boundary,防止服务器解析图片二进制数据时不完全.服务器通过headers.Content-Type属性拿到boundary的格式,然后解析数据.</p>
+<div class="highlight"><pre><span></span><code><span class="o">//</span> <span class="nt">form</span> <span class="nt">data</span> <span class="nt">就长这个样子</span>
+<span class="nt">----WebKitFormBoundaryIC01f322biu553o1</span>
+<span class="p">{</span><span class="n">Content-Disposition</span><span class="p">:</span> <span class="n">form-data</span><span class="p">;</span> <span class="err">name=&quot;file&quot;</span><span class="p">;</span> <span class="err">filename=&quot;国粮集运粮食信息资讯周报-20190105-20190111.png&quot;</span>
+<span class="n">Content-Type</span><span class="p">:</span> <span class="n">image</span><span class="o">/</span><span class="n">png</span><span class="p">}</span>
+<span class="nt">----WebKitFormBoundaryIC01f322biu553o1</span>
+
+<span class="o">//</span> <span class="nt">这里其实涉及到了multipart</span><span class="o">/</span><span class="nt">form-data的概念</span><span class="o">,</span><span class="nt">如下链接可以查看更详尽的说明</span><span class="o">:</span>
+<span class="nt">http</span><span class="o">://</span><span class="nt">www</span><span class="p">.</span><span class="nc">jianshu</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">p</span><span class="o">/</span><span class="nt">e810d1799384</span>
+<span class="nt">https</span><span class="o">://</span><span class="nt">stackoverflow</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">questions</span><span class="o">/</span><span class="nt">3508338</span><span class="o">/</span><span class="nt">what-is-the-boundary-in-multipart-form-data</span>
+<span class="nt">http</span><span class="o">://</span><span class="nt">docs</span><span class="p">.</span><span class="nc">python-requests</span><span class="p">.</span><span class="nc">org</span><span class="o">/</span><span class="nt">en</span><span class="o">/</span><span class="nt">master</span><span class="o">/</span><span class="nt">user</span><span class="o">/</span><span class="nt">quickstart</span><span class="o">/</span><span class="p">#</span><span class="nn">post-a-multipart-encoded-file</span>
+<span class="nt">https</span><span class="o">://</span><span class="nt">stackoverflow</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">questions</span><span class="o">/</span><span class="nt">12385179</span><span class="o">/</span><span class="nt">how-to-send-a-multipart-form-data-with-requests-in-python</span><span class="o">/</span><span class="nt">12385661</span><span class="p">#</span><span class="nn">12385661</span>
+</code></pre></div>
+
+<p><strong>具体做法就是:</strong></p>
+<ol>
+<li>import request_toolbelt.MutipartEncoder,</li>
+<li>encode要上传的数据,</li>
+<li>在header中添加Content-Type属性,</li>
+<li>完成上传.</li>
+</ol>
+<p><strong>值得注意的是,尽管抓页面上传样本数据时提示了content-Disposition, name, filename, Content-Type等属性,但使用MutipartEncoder封包数据时并不需要设置这些参数,进把图片读取并封装即可,保险期间,key还是用<code>file</code>来命名.</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">requests_toolbelt</span>  <span class="kn">import</span> <span class="n">MultipartEncoder</span>
+
+
+<span class="k">def</span> <span class="nf">encode_image_data</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;file&#39;</span><span class="p">:(</span><span class="n">image_path</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;./</span><span class="si">{</span><span class="n">image_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">),</span> <span class="s1">&#39;image/png&#39;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">boundary</span> <span class="o">=</span> <span class="s1">&#39;----WebKitFormBoundary&#39;</span><span class="o">+</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="o">+</span><span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">,</span><span class="mi">16</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">MultipartEncoder</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">boundary</span><span class="p">)</span>
+
+<span class="n">post_data_img</span> <span class="o">=</span> <span class="n">encode_image_data</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;Accept&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json, text/javascript, */*; q=0.01&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Accept-Encoding&#39;</span><span class="p">:</span> <span class="s1">&#39;gzip, deflate&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;multipart/form-data; boundary=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">post_data_img</span><span class="o">.</span><span class="n">boundary_value</span><span class="p">),</span> 
+        <span class="s1">&#39;Cookie&#39;</span><span class="p">:</span> <span class="n">COOKIE</span><span class="p">,</span> 
+        <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36&#39;</span>
+    <span class="p">}</span>
+
+<span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">UPLOAD_IMG_URL</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">post_data_img</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+
+<blockquote>
+<p>注意, 上传图片直接open(img_path, "rb"),e.g., <code>urlopen(url, open("img_path.png", "rb"))</code>.</p>
+<p>不过据说urlopen在上传时会对content-type属性有重设或其他bug,导致服务器不是别mutipart/form-data格式,阻碍数据上传和解析.这里就不再另试了,直接requests解决.</p>
+</blockquote>
+<h2>3. Post json data时空值用空字符串,数值直接传</h2>
+<p>上传json数据时,chrome 查的数据格式为:</p>
+<div class="highlight"><pre><span></span><code><span class="err">Title:</span> <span class="err">&#39;粮食信息资讯周报&#39;,</span>
+<span class="err">Keywords:</span> <span class="err">,</span> 
+<span class="err">Content:</span> <span class="err">f&#39;&lt;p</span> <span class="err">style=</span><span class="s2">&quot;text-align: center;&quot;</span><span class="err">&gt;&lt;img</span> <span class="err">src=</span><span class="s2">&quot;/Web{img_url}&quot;</span><span class="err">/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&#39;,</span>
+<span class="err">Author:</span> <span class="err">,</span>
+<span class="err">Editor:</span> <span class="err">Editor,</span>
+<span class="err">ArticleTypeID:</span> <span class="err">&#39;</span><span class="mi">39</span><span class="err">&#39;,</span>
+<span class="err">ArticleSubTypeID:</span> <span class="err">&#39;</span><span class="mi">45</span><span class="err">&#39;,</span>
+<span class="err">ArticleFrom:</span> <span class="err">&#39;国家粮食交易中心&#39;,</span>
+<span class="err">OrderShow:</span> <span class="err">&#39;</span><span class="mi">100</span><span class="err">&#39;,</span>
+<span class="err">IsDaoDu:</span> <span class="mi">0</span><span class="err">,</span>
+<span class="err">IsCheck:</span> <span class="mi">1</span>
+</code></pre></div>
+
+<p>可以看到<code>Keywords</code>, <code>Author</code>字段都没有值.如果服务器返回上传失败,大概率因为form-data提交时数据字段不能缺省,用``空字符串赋值即可.而0,1,-1这样的单值就以int类型就可以,不用转字符串.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_post_report_data</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">img_url</span><span class="p">,</span> <span class="n">Editor</span><span class="o">=</span><span class="s1">&#39;liuhy&#39;</span><span class="p">):</span>
+
+<span class="c1"># ...    </span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;Title&#39;</span><span class="p">:</span> <span class="s1">&#39;粮食信息资讯周报&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Keywords&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> 
+        <span class="s1">&#39;Content&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/Web</span><span class="si">{</span><span class="n">img_url</span><span class="si">}</span><span class="s1">&quot;/&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Author&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Editor&#39;</span><span class="p">:</span> <span class="n">Editor</span><span class="p">,</span>
+        <span class="s1">&#39;ArticleTypeID&#39;</span><span class="p">:</span> <span class="s1">&#39;39&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ArticleSubTypeID&#39;</span><span class="p">:</span> <span class="s1">&#39;45&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ArticleFrom&#39;</span><span class="p">:</span> <span class="s1">&#39;国家粮食交易中心&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;OrderShow&#39;</span><span class="p">:</span> <span class="s1">&#39;100&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;IsDaoDu&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;IsCheck&#39;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="c1"># 省略剩余参数</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<div id="aboutme">
+    <p>
+      <strong>About Burgan</strong><br/>
+        PYTHON, UBUNTU, AND More.
+    </p>
+</div><!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="mailto:qicai21@gmail.com"><i class="fa fa-envelope-o fa-lg"></i> envelope-o</a></li>
+    <li class="list-group-item"><a href="https://www.linkedin.com/in/东北-郭-b05753166/"><i class="fa fa-linkedin-square fa-lg"></i> linkedin</a></li>
+    <li class="list-group-item"><a href="https://github.com/qicai21"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Tag Cloud -->
+<li class="list-group-item">
+  <a href="./"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <ul class="list-group " id="tags">
+    <li class="list-group-item tag-1">
+      <a href="./tag/ubuntu.html">ubuntu</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="./tag/python.html">python</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="./tag/linux.html">linux</a>
+    </li>
+    <li class="list-group-item tag-2">
+      <a href="./tag/jupyter.html">jupyter</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/data_analysis.html">data_analysis</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/matplotlib.html">matplotlib</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/requests.html">requests</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/requests_toolbelt.html">requests_toolbelt</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/flow.html">flow</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/crawler.html">crawler</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/proxy.html">proxy</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/javascript.html">javascript</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/web.html">web</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/python3.html">python3</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/git.html">git</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/markdown.html">markdown</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/tu-pian-shang-chuan.html">图片上传</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/pa-chong.html">爬虫</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/command.html">command</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/pelican.html">pelican</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/webkitformboundary.html">WebKitFormBoundary</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/mermaid.html">mermaid</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/thinkpad_trackpoint.html">thinkpad_trackpoint</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Tag Cloud -->
+
+<!-- Sidebar/Images -->
+<li class="list-group-item">
+  <ul class="list-group" id="links">
+    <img width="100%" class="img-thumbnail" src="/assets/cn_tiktok_qr.png"/>
+  </ul>
+</li>
+<!-- End Sidebar/Images -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<!-- End Content Container -->
+
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2021 Burgan
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh_cn"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a>
+    &quot;<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Burgan的干货站</span>&quot; by <a xmlns:cc="http://creativecommons.org/ns#" href="." property="cc:attributionName" rel="cc:attributionURL">Burgan</a> is
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh_cn">Creative Commons Attribution-NonCommercial 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+
+
+
+</body>
+</html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>ubuntu: trackpoint setting - Burgan的干货站</title>
+    <title>Matplotlib 中文显示问题 - Burgan的干货站</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,21 +10,21 @@
 
     <link href=".//favicon.ico" rel="icon">
 
-<link rel="canonical" href="./trakpoint_drive_on_ubuntu.html">
+<link rel="canonical" href="./cn_fonts_config_of_matplotlib.html">
 
         <meta name="author" content="Burgan" />
-        <meta name="keywords" content="ubuntu,thinkpad_trackpoint" />
-        <meta name="description" content="thinkpad小红点在ubuntu下的驱动" />
+        <meta name="keywords" content="matplotlib,python" />
+        <meta name="description" content="解决matplotlib中文显示问题." />
 
         <meta property="og:site_name" content="Burgan的干货站" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="ubuntu: trackpoint setting"/>
-        <meta property="og:url" content="./trakpoint_drive_on_ubuntu.html"/>
-        <meta property="og:description" content="thinkpad小红点在ubuntu下的驱动"/>
-        <meta property="article:published_time" content="2017-04-07" />
+        <meta property="og:title" content="Matplotlib 中文显示问题"/>
+        <meta property="og:url" content="./cn_fonts_config_of_matplotlib.html"/>
+        <meta property="og:description" content="解决matplotlib中文显示问题."/>
+        <meta property="article:published_time" content="2019-01-10" />
             <meta property="article:section" content="Tips" />
-            <meta property="article:tag" content="ubuntu" />
-            <meta property="article:tag" content="thinkpad_trackpoint" />
+            <meta property="article:tag" content="matplotlib" />
+            <meta property="article:tag" content="python" />
             <meta property="article:author" content="Burgan" />
 
 
@@ -83,10 +83,10 @@ Burgan的干货站            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="./trakpoint_drive_on_ubuntu.html"
+                    <a href="./cn_fonts_config_of_matplotlib.html"
                        rel="bookmark"
-                       title="Permalink to ubuntu: trackpoint setting">
-                        ubuntu: trackpoint setting
+                       title="Permalink to Matplotlib 中文显示问题">
+                        Matplotlib 中文显示问题
                     </a>
                 </h1>
             </header>
@@ -96,7 +96,7 @@ Burgan的干货站            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-04-07T00:00:00+08:00"> 五 07 四月 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2019-01-10T00:00:00+08:00"> 四 10 一月 2019</time>
     </span>
 
 
@@ -104,67 +104,38 @@ Burgan的干货站            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="./tag/ubuntu.html">ubuntu</a>
+	<a href="./tag/matplotlib.html">matplotlib</a>
         /
-	<a href="./tag/thinkpad_trackpoint.html">thinkpad_trackpoint</a>
+	<a href="./tag/python.html">python</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <h2>using xinput command</h2>
-<p><strong>what's xinput?</strong></p>
-<blockquote>
-<p>xinput  is a utility to list available input devices,
-query information about a device and change input device settings.</p>
-<p><a href="http://manpages.ubuntu.com/manpages/zesty/man1/xinput.1.html">more info about xinput</a></p>
+                <blockquote>
+<p>之前(2019年)在matplotlib使用过程中出现中文显示<code>方块</code>的问题,这次重装系统也再没出现过,不过还是留备注.</p>
 </blockquote>
-<h2>Change configure of TrackPoint</h2>
-<p>Get Device ID of TrackPoint</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$xinput</span> list <span class="p">|</span> grep TrackPoint
-<span class="c1"># get output as follows</span>
-TPPS/2 IBM TrackPoint    <span class="nv">id</span><span class="o">=</span><span class="m">14</span>    <span class="o">[</span>slave  pointer  <span class="o">(</span><span class="m">2</span><span class="o">)]</span>
+<p><strong>第一步</strong> 下载字体:msyh.ttf (微软雅黑)放在系统字体文件夹下:/usr/share/fonts同时也复制了放在matplotlib的字体文件夹下了(不知道这一步是不是必须)</p>
+<blockquote>
+<p>ttc fonts path of mpl:  <code>/usr/local/lib/python3.5/dist-packages/matplotlib/mpl-data/fonts/ttf/</code>  <!--以python3.5为例--></p>
+<p>convert to ttf website: <a href="https://transfonter.org/ttc-unpack">https://transfonter.org/ttc-unpack</a></p>
+</blockquote>
+<p><strong>第二步</strong> 修改matplotlib配置文件：sudo vim /usr/local/lib/python3.5/dist-packages/matplotlib/mpl-data/matplotlibrc删除font.family和font.sans-serif两行前的#，并在font.sans-serif后添加中文字体Microsoft YaHei, ...(其余不变)</p>
+<p><strong>第三步</strong> 删除~/.cache/matplotlib下文件fontList.py3k.cache重启python即可</p>
+<p><strong>How to locate matplotlib folder path?</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">matplotlib_fname</span><span class="p">())</span> <span class="c1"># &quot;../matplotlib/mpl-data/fonts/ttf&quot;</span>
 </code></pre></div>
 
-<p>Then get setting value by this ID：</p>
-<div class="highlight"><pre><span></span><code>$ xinput list-props <span class="m">14</span>
-
-Device <span class="s1">&#39;TPPS/2 IBM TrackPoint&#39;</span>:
-Device Enabled <span class="o">(</span><span class="m">137</span><span class="o">)</span>:   <span class="m">1</span>
-Coordinate Transformation Matrix <span class="o">(</span><span class="m">139</span><span class="o">)</span>: <span class="m">1</span>.000000, <span class="m">0</span>.000000, <span class="m">0</span>.000000, <span class="m">0</span>.000000, <span class="m">1</span>.000000, <span class="m">0</span>.000000, <span class="m">0</span>.000000, <span class="m">0</span>.000000, <span class="m">1</span>.000000
-Device Accel Profile <span class="o">(</span><span class="m">263</span><span class="o">)</span>: <span class="m">0</span>
-Device Accel Constant Deceleration <span class="o">(</span><span class="m">264</span><span class="o">)</span>:   <span class="m">1</span>.000000
-Device Accel Adaptive Deceleration <span class="o">(</span><span class="m">265</span><span class="o">)</span>:   <span class="m">1</span>.000000
-...
-<span class="c1"># the value in row 5 and 6, it output as：</span>
-Device Accel Constant Deceleration <span class="o">(</span><span class="m">264</span><span class="o">)</span>: <span class="m">1</span>.000000 
-Device Accel Adaptive Deceleration <span class="o">(</span><span class="m">265</span><span class="o">)</span>: <span class="m">1</span>.000000
+<ul>
+<li>
+<p><strong>Copy your font-file(.tff) into the ttf folder <code>"../matplotlib/mpl-data/fonts/ttf"</code></strong></p>
+</li>
+<li>
+<p><strong>Use the font display config in python</strong></p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;WenQuanYi Micro Hei Mono&#39;</span><span class="p">]</span>
 </code></pre></div>
-
-<p>其中括号里的整数就是该项设置的ID，后面的小数是该项设置的参数值。
-ID为264（我的机器）代表的是小红点的固定阻力值(Constant Deceleration)，
-取值范围是 [0,1]；ID为265代表的是随力度减弱时阻力增加的速度，
-即小红点停下来的速度，取值范围是 [1,?]。一般来说设置264就够了.</p>
-<p><strong>reset the value:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="nv">$xinput</span> set-prop <span class="m">14</span> <span class="m">264</span> <span class="m">0</span>.40
-</code></pre></div>
-
-<p>把下边这条命令加入到 ~/.xprofile</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="c1"># obtain TrackPoint ID from xinput list</span>
-<span class="nv">TP_ID</span><span class="o">=</span><span class="k">$(</span>xinput list <span class="p">|</span> grep TrackPoint <span class="p">|</span> cut -f <span class="m">2</span> <span class="p">|</span> grep -Eo <span class="s1">&#39;[0-9]{1,}&#39;</span><span class="k">)</span>
-
-<span class="k">if</span> <span class="o">[</span> -n <span class="s2">&quot;</span><span class="nv">$TP_ID</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="c1"># obtain properties from xinput list-props &quot;$TP_ID&quot;</span>
-    <span class="nv">AS_ID</span><span class="o">=</span><span class="k">$(</span>xinput list-props <span class="s2">&quot;</span><span class="nv">$TP_ID</span><span class="s2">&quot;</span> <span class="p">|</span> grep <span class="s1">&#39;Accel Constant Deceleration (&#39;</span> <span class="p">|</span> cut -f <span class="m">2</span> <span class="p">|</span> grep -Eo <span class="s1">&#39;[0-9]{1,}&#39;</span><span class="k">)</span>
-    <span class="c1"># set the speed you want</span>
-    <span class="k">$(</span>xinput set-prop <span class="s2">&quot;</span><span class="nv">$TP_ID</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$AS_ID</span><span class="s2">&quot;</span> <span class="m">0</span>.50 <span class="k">)</span>
-<span class="k">fi</span>
-</code></pre></div>
-
-<p>PS: 妈蛋,居然附赠了我一堆shell 脚本的学习工作, 最后一行命令她给写成了:</p>
-<div class="highlight"><pre><span></span><code><span class="k">$(</span>xinput <span class="nb">set</span> -prop <span class="s2">&quot;</span><span class="nv">$TP_ID</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$AS_ID</span><span class="s2">&quot;</span> <span class="m">0</span>.25<span class="k">)</span>
-</code></pre></div>
-
-<p>it will be not implemented by bash, 还得自己改.</p>
             </div>
             <!-- /.entry-content -->
         </article>
